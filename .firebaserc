@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "altaf-portfolio-d6c9d"
+  },
+  "targets": {
+    "altaf-portfolio-d6c9d": {
+      "hosting": {
+        "main": [
+          "altafagowun"
+        ]
+      }
+    }
+  }
+}
