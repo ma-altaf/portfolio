@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ma-altaf/portfolio/issues"
   },
-  "homepage": "https://github.com/ma-altaf/portfolio#readme"
+  "homepage": "https://github.com/ma-altaf/portfolio#readme",
+  "dependencies": {
+    "animejs": "^3.2.1"
+  }
 }
