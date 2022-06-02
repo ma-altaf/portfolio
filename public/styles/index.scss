@@ -24,6 +24,8 @@
 .char {
     display: inline-block;
     text-align: center;
+    overflow: hidden;
+    width: fit-content;
 }
 
 #cover {
@@ -42,7 +44,9 @@
         width: var(--name-box-w);
         position: relative;
 
-        & h1 {
+        & #firstname {
+            text-align: center;
+            min-width: var(--name-box-w);
             position: absolute;
             top: 50%;
             left: 50%;
@@ -81,10 +85,4 @@ h1 {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 10vw;
-}
-p {
-    margin: 1em 0.5em;
-    font-size: 1.5em;
-    text-align: right;
-    color: #00bcf2;
 }
