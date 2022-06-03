@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ma-altaf/portfolio#readme",
   "dependencies": {
-    "animejs": "^3.2.1"
+    "animejs": "^3.2.1",
+    "smooth-scrollbar": "^8.7.4"
   }
 }
