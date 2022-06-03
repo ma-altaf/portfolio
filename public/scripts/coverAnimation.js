@@ -77,7 +77,7 @@ coverTL
         {
             targets: cover,
             clipPath: [
-                "polygon(0 0, 100% 0%, 100% 150%, 0 100%)",
+                "polygon(0 0, 100% 0%, 100% 125%, 0 100%)",
                 "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
             ],
             duration: coverRevealTimeMS,
