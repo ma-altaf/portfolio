@@ -1,4 +1,3 @@
-import anime from "../../node_modules/animejs/lib/anime.es.js";
 const cover = document.querySelector("#cover");
 const namebox = cover.querySelector("#name-box");
 const surname = namebox.querySelector("#surname");
@@ -34,9 +33,6 @@ coverTL
         duration: 450,
         easing: "easeOutCirc",
         delay: anime.stagger(100, { from: "center" }),
-        begin: () => {
-            scrollbar.updatePluginOptions("modal", { open: true });
-        },
     })
     .add(
         {
@@ -44,11 +40,11 @@ coverTL
             translateX: 0,
             translateY: 0,
             scale: 1,
-            duration: 475,
+            duration: 450,
             easing: "easeOutCirc",
             delay: anime.stagger(100, { grid: [3, 2], from: "center" }),
         },
-        "-=300"
+        "-=225"
     )
     .add({
         targets: surname,
