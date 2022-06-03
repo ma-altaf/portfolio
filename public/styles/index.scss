@@ -12,6 +12,10 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
+    ::selection {
+        color: var(--accent-color);
+        background: var(--secondaryColor);
+    }
 }
 
 .char {
@@ -19,17 +23,19 @@
     text-align: center;
     overflow: hidden;
     width: fit-content;
+    will-change: contents;
 }
 
 body {
     background-color: var(--primaryColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
-    flex-direction: column;
+    overflow: hidden;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
 }
 
 #cover {
@@ -80,13 +86,21 @@ body {
 
 #landingSect {
     width: 100vw;
-    // height: 100vh;
+    min-height: 100vh;
 
     #title {
-        padding: 2rem;
+        text-transform: uppercase;
+        line-height: 100%;
+        padding: 4rem;
         font-weight: 700;
         font-size: 10vw;
         max-width: 80vw;
+
+        .word {
+            display: flex;
+            width: fit-content;
+            overflow: hidden;
+        }
     }
 }
 

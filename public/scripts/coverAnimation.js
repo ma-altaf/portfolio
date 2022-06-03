@@ -3,6 +3,7 @@ const cover = document.querySelector("#cover");
 const namebox = cover.querySelector("#name-box");
 const surname = namebox.querySelector("#surname");
 const firstname = namebox.querySelector("#firstname");
+const titleWords = document.querySelectorAll("#title .word");
 
 breakWord(surname);
 
@@ -32,7 +33,10 @@ coverTL
         opacity: [0, 1],
         duration: 450,
         easing: "easeOutCirc",
-        delay: anime.stagger(100, { grid: [5, 1], from: "center" }),
+        delay: anime.stagger(100, { from: "center" }),
+        begin: () => {
+            scrollbar.updatePluginOptions("modal", { open: true });
+        },
     })
     .add(
         {
@@ -82,6 +86,19 @@ coverTL
             ],
             duration: coverRevealTimeMS,
             easing: "easeInOutCubic",
+            complete: (anim) => {},
         },
         `-=${coverRevealTimeMS}`
+    )
+    .add(
+        {
+            targets: "#title .word p",
+            translateY: ["150%", 0],
+            rotateZ: [10, 0],
+            easing: "easeOutCirc",
+            duration: 500,
+            delay: anime.stagger(50),
+            complete: function (anim) {},
+        },
+        `-=${coverRevealTimeMS / 3}`
     );

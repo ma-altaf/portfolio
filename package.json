@@ -1,23 +1,23 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
-  "description": "Personal portfolio code",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ma-altaf/portfolio.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ma-altaf/portfolio/issues"
-  },
-  "homepage": "https://github.com/ma-altaf/portfolio#readme",
-  "dependencies": {
-    "animejs": "^3.2.1",
-    "smooth-scrollbar": "^8.7.4"
-  }
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Personal portfolio code",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ma-altaf/portfolio.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ma-altaf/portfolio/issues"
+    },
+    "homepage": "https://github.com/ma-altaf/portfolio#readme",
+    "dependencies": {
+        "animejs": "^3.2.1",
+        "smooth-scrollbar": "^8.7.4"
+    }
 }

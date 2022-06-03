@@ -1,4 +1,4 @@
-Scrollbar.init(document.querySelector("main"), {
+const scrollbar = Scrollbar.init(document.querySelector("main"), {
     damping: 0.07,
 });
 
