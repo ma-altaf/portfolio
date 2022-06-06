@@ -1,3 +1,6 @@
+import { breakWord } from "./index";
+import anime from "animejs/lib/anime.es.js";
+
 const cover = document.querySelector("#cover");
 const namebox = cover.querySelector("#name-box");
 const surname = namebox.querySelector("#surname");
