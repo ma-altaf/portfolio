@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap");
 
 :root {
-    --primaryColor: #f5f5f0;
+    --primaryColor: #f3f7f7;
     --secondaryColor: #151515;
     --accent-color: #ffeaa7;
     --name-box-w: 30vw;
@@ -11,7 +11,8 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Quicksand", sans-serif;
+
     ::selection {
         color: var(--accent-color);
         background: var(--secondaryColor);
@@ -22,7 +23,6 @@
     display: inline-block;
     text-align: center;
     overflow: hidden;
-    width: fit-content;
     will-change: contents;
 }
 
@@ -36,6 +36,49 @@ body {
 main {
     width: 100vw;
     height: 100vh;
+}
+
+#navbar {
+    padding: 0 4rem;
+    z-index: 10;
+    position: absolute;
+    inset: 0 0;
+    width: 100vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    #logo {
+        cursor: pointer;
+        width: 7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3rem;
+        position: relative;
+
+        #logoFirstname {
+            top: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        #logoSurname {
+            top: 0;
+            pointer-events: none;
+        }
+    }
+
+    #menu {
+        text-transform: uppercase;
+        display: flex;
+        width: 30vw;
+        justify-content: space-between;
+
+        a {
+            text-decoration: none;
+            color: var(--secondaryColor);
+        }
+    }
 }
 
 #cover {
@@ -55,7 +98,7 @@ main {
     & #name-box {
         justify-content: center;
         align-items: center;
-        width: var(--name-box-w);
+        max-width: var(--name-box-w);
         position: relative;
 
         & #firstname {
@@ -102,10 +145,63 @@ main {
             overflow: hidden;
         }
     }
+
+    #aboutPara {
+        font-size: large;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        p {
+            max-width: 700px;
+            padding: 4rem;
+        }
+    }
 }
 
 @media only screen and (max-width: 820px) {
     :root {
         --name-box-w: 70vw;
+    }
+
+    #navbar {
+        padding: 0 1rem;
+        z-index: 10;
+        position: absolute;
+        inset: 0 0;
+        width: 100vw;
+        height: 8vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        #logo {
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            position: relative;
+
+            #logoFirstname {
+                inset: 0 0;
+                position: absolute;
+            }
+
+            #logoSurname {
+                inset: 0 0;
+                position: absolute;
+            }
+        }
+
+        #menu {
+            text-transform: uppercase;
+            display: flex;
+            width: 30vw;
+            justify-content: space-between;
+        }
+    }
+
+    #landingSect {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
     }
 }
