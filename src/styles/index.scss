@@ -57,12 +57,18 @@ main {
         position: relative;
 
         #logoFirstname {
+            .char p {
+                transform-origin: bottom center;
+            }
             top: 0;
             position: absolute;
             pointer-events: none;
         }
 
         #logoSurname {
+            .char p {
+                transform-origin: top center;
+            }
             top: 0;
             pointer-events: none;
         }
