@@ -7,7 +7,7 @@ const surname = namebox.querySelector("#surname");
 const firstname = namebox.querySelector("#firstname");
 const titleWords = document.querySelectorAll("#title .word");
 
-const COVER_ANIMATION_TIME = 1300;
+const COVER_ANIMATION_TIME = 1000;
 
 const coverAnimation = () => {
     const coverTL = anime.timeline();

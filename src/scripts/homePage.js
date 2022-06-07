@@ -77,24 +77,24 @@ links.forEach((link) => {
             translateY: "-50%",
             duration: 700,
             easing: "easeOutQuart",
-            delay: 100,
         });
 
         anime({
             targets: icon.querySelector(".material-icons"),
-            translateY: 0,
+            translateY: ["100%", 0],
             duration: 700,
             easing: "easeOutQuart",
             delay: 200,
         });
     });
+
     link.addEventListener("mouseleave", () => {
         anime({
             targets: text.querySelectorAll(".char"),
             translateY: 0,
             opacity: 1,
             duration: 700,
-            easing: "easeOutQuart",
+            easing: "easeInOutQuart",
             delay: anime.stagger(100, { from: "center", direction: "reverse" }),
         });
         anime({
@@ -102,13 +102,14 @@ links.forEach((link) => {
             clipPath: "circle(0.0% at 50% 50%)",
             translateY: 0,
             duration: 700,
-            easing: "easeOutQuart",
+            easing: "easeInOutQuart",
+            delay: 100,
         });
         anime({
             targets: icon.querySelector(".material-icons"),
-            translateY: "100%",
-            duration: 700,
-            easing: "easeOutQuart",
+            translateY: "-100%",
+            duration: 600,
+            easing: "easeInOutQuart",
         });
     });
 });
