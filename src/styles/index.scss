@@ -50,8 +50,9 @@ main {
     justify-content: space-between;
 
     #logo {
+        font-size: x-large;
         cursor: pointer;
-        width: 7rem;
+        width: 9rem;
         text-transform: uppercase;
         letter-spacing: 0.3rem;
         position: relative;
@@ -83,6 +84,24 @@ main {
         a {
             text-decoration: none;
             color: var(--secondaryColor);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            .icons {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: translateX(-50%);
+                background-color: var(--secondaryColor);
+                color: var(--accent-color);
+                padding: 1rem;
+                clip-path: circle(0% at 50% 50%);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+            }
         }
     }
 }
@@ -176,7 +195,7 @@ main {
         position: absolute;
         inset: 0 0;
         width: 100vw;
-        height: 8vh;
+        height: 10vh;
         display: flex;
         align-items: center;
         justify-content: space-between;
