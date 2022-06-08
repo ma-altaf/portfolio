@@ -1,4 +1,4 @@
-import { breakLine, breakWord } from "./index";
+import { breakIntoChar } from "./index";
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
 
@@ -8,8 +8,8 @@ const firstname = logo.querySelector("#logoFirstname");
 const surname = logo.querySelector("#logoSurname");
 
 if (window.innerWidth > 820) {
-    breakWord(firstname);
-    breakWord(surname);
+    breakIntoChar(firstname);
+    breakIntoChar(surname);
 
     anime.set(surname.querySelectorAll(".char p"), {
         translateX: "110%",
@@ -56,7 +56,7 @@ if (window.innerWidth > 820) {
 
     links.forEach((link) => {
         const text = link.querySelector("p");
-        breakWord(text);
+        breakIntoChar(text);
         const icon = link.querySelector(".icons");
         anime.set(icon, {
             translateX: "-50%",

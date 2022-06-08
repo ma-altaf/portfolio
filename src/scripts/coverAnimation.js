@@ -1,4 +1,4 @@
-import { breakWord } from "./index";
+import { breakIntoChar } from "./index";
 import anime from "animejs/lib/anime.es.js";
 
 const cover = document.querySelector("#cover");
@@ -11,7 +11,7 @@ const COVER_ANIMATION_TIME = 1100;
 
 const coverAnimation = () => {
     const coverTL = anime.timeline();
-    breakWord(surname);
+    breakIntoChar(surname);
     surname.querySelectorAll(".char").forEach((el, index) => {
         const positionArrX = ["-100%", "0%", "100%", "-100%", "0%", "100%"];
         const positionArrY = [
@@ -29,7 +29,7 @@ const coverAnimation = () => {
         });
     });
 
-    breakWord(firstname);
+    breakIntoChar(firstname);
 
     anime.set(cover, {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
