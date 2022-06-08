@@ -18,6 +18,14 @@
     }
 }
 
+.scrollbar-thumb {
+    background: var(--accent-color) !important;
+}
+
+.scrollbar-track {
+    background-color: transparent !important;
+}
+
 .char {
     display: inline-block;
     text-align: center;

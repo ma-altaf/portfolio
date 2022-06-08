@@ -121,20 +121,15 @@ if (window.innerWidth > 820) {
     });
 }
 
-// const triggerOpt = {
-//     start: [0, 1],
-//     end: [0.5, 0.65],
-// };
-
 const animation = anime({
     autoplay: false,
     targets: aboutText.querySelectorAll("div pre p"),
     translateY: ["150%", 0],
     duration: 850,
     easing: "easeOutQuad",
-    delay: anime.stagger(150),
+    delay: anime.stagger(100),
 });
 
-animationTrigger(aboutText, 1, (ratio) => {
+animationTrigger(aboutText, 0.75, () => {
     animation.play();
 });

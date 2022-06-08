@@ -7,7 +7,7 @@ const surname = namebox.querySelector("#surname");
 const firstname = namebox.querySelector("#firstname");
 const titleWords = document.querySelectorAll("#title .word");
 
-const COVER_ANIMATION_TIME = 1000;
+const COVER_ANIMATION_TIME = 1100;
 
 const coverAnimation = () => {
     const coverTL = anime.timeline();
@@ -40,7 +40,7 @@ const coverAnimation = () => {
             targets: firstname.querySelectorAll(".char p"),
             translateY: ["100%", 0],
             opacity: [0, 1],
-            duration: 450,
+            duration: 500,
             easing: "easeOutCirc",
             delay: anime.stagger(100, { from: "center" }),
         })
@@ -50,11 +50,11 @@ const coverAnimation = () => {
                 translateX: 0,
                 translateY: 0,
                 scale: 1,
-                duration: 450,
+                duration: 575,
                 easing: "easeOutCirc",
                 delay: anime.stagger(100, { grid: [3, 2], from: "center" }),
             },
-            "-=225"
+            "-=200"
         )
         .add({
             targets: surname,
@@ -92,7 +92,6 @@ const coverAnimation = () => {
                 ],
                 duration: COVER_ANIMATION_TIME,
                 easing: "easeInOutCubic",
-                complete: (anim) => {},
             },
             `-=${COVER_ANIMATION_TIME}`
         )
@@ -102,7 +101,7 @@ const coverAnimation = () => {
                 translateY: ["150%", 0],
                 rotateZ: [10, 0],
                 easing: "easeOutCirc",
-                duration: 500,
+                duration: 650,
                 delay: anime.stagger(50),
                 complete: function (anim) {},
             },
@@ -113,7 +112,7 @@ const coverAnimation = () => {
                 targets: ["#logo #logoFirstname", "#logo #logoSurname"],
                 translateY: ["150%", 0],
                 easing: "easeOutCirc",
-                duration: 350,
+                duration: 485,
             },
             `-=300`
         )
@@ -124,7 +123,7 @@ const coverAnimation = () => {
                 color: "red",
                 translateY: ["100%", 0],
                 easing: "easeOutCirc",
-                duration: 350,
+                duration: 485,
                 delay: anime.stagger(100),
             },
             `-=150`
