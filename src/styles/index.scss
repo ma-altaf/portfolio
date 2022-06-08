@@ -182,8 +182,13 @@ main {
         justify-content: center;
         align-items: center;
 
-        p {
-            max-width: 40vw;
+        div {
+            width: 40vw;
+
+            pre {
+                line-height: 150%;
+                overflow: hidden;
+            }
         }
     }
 }

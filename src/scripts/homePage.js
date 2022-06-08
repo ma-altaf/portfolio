@@ -1,9 +1,9 @@
-import { breakWord } from "./index";
+import { breakLine, breakWord } from "./index";
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
 
 const logo = document.querySelector("#logo");
-const aboutText = document.querySelector("#landingSect #aboutPara p");
+const aboutText = document.querySelector("#landingSect #aboutPara");
 const firstname = logo.querySelector("#logoFirstname");
 const surname = logo.querySelector("#logoSurname");
 
@@ -121,21 +121,20 @@ if (window.innerWidth > 820) {
     });
 }
 
-const triggerOpt = {
-    start: [0, 1],
-    end: [0.5, 0.65],
-};
+// const triggerOpt = {
+//     start: [0, 1],
+//     end: [0.5, 0.65],
+// };
 
 const animation = anime({
     autoplay: false,
-    targets: aboutText,
-    opacity: [0, 1],
-    scaleX: [0.8, 1],
-    scaleY: [0.8, 1],
-    duration: 1000,
-    easing: "linear",
+    targets: aboutText.querySelectorAll("div pre p"),
+    translateY: ["150%", 0],
+    duration: 850,
+    easing: "easeOutQuad",
+    delay: anime.stagger(150),
 });
 
-animationTrigger(aboutText, triggerOpt, (ratio) => {
-    animation.seek(animation.duration * ratio);
+animationTrigger(aboutText, 1, (ratio) => {
+    animation.play();
 });

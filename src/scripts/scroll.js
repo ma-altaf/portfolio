@@ -32,6 +32,16 @@ for (let i = 0; i <= 1.01; i += 0.01) {
 // solution does not trigger in the middle of the screen
 // trigger animation on intersection
 const animationTrigger = (element, threshold = 1, callback) => {
+    if (element instanceof NodeList) {
+        element.forEach((el) => {
+            AddAnimationHnadler(el, threshold, callback);
+        });
+    } else {
+        AddAnimationHnadler(element, threshold, callback);
+    }
+};
+
+function AddAnimationHnadler(element, threshold, callback) {
     new IntersectionObserver(
         (entries, observer) => {
             entries.forEach((entry) => {
@@ -57,13 +67,13 @@ const animationTrigger = (element, threshold = 1, callback) => {
             threshold: typeof threshold === "object" ? 0 : threshold,
         }
     ).observe(element);
-};
+}
 
 function ratioCalculator(
     element,
     {
-        start: [elStartOffset = 0, winStartOffset = 1],
-        end: [elEndOffset = 1, winEndOffset = 0],
+        start: [elStartOffset = 0, winStartOffset = 1] = [0, 1],
+        end: [elEndOffset = 1, winEndOffset = 0] = [1, 0],
     },
     listner
 ) {
