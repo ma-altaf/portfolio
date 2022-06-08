@@ -1,115 +1,141 @@
 import { breakWord } from "./index";
 import anime from "animejs";
+import { animationTrigger } from "./scroll";
 
 const logo = document.querySelector("#logo");
+const aboutText = document.querySelector("#landingSect #aboutPara p");
 const firstname = logo.querySelector("#logoFirstname");
 const surname = logo.querySelector("#logoSurname");
 
-breakWord(firstname);
-breakWord(surname);
+if (window.innerWidth > 820) {
+    breakWord(firstname);
+    breakWord(surname);
 
-anime.set(surname.querySelectorAll(".char p"), {
-    translateX: "110%",
-    rotateZ: "-70deg",
-});
-
-logo.addEventListener("mouseenter", () => {
-    anime({
-        targets: surname.querySelectorAll(".char p"),
-        translateX: 0,
-        rotateZ: 0,
-        easing: "easeInOutQuart",
-    });
-    anime(
-        {
-            targets: firstname.querySelectorAll(".char p"),
-            translateX: "-110%",
-            rotateZ: "-70deg",
-            easing: "easeInOutQuart",
-        },
-        "-=1000"
-    );
-});
-
-logo.addEventListener("mouseleave", () => {
-    anime({
-        targets: surname.querySelectorAll(".char p"),
+    anime.set(surname.querySelectorAll(".char p"), {
         translateX: "110%",
         rotateZ: "-70deg",
-        easing: "easeInOutQuart",
     });
-    anime(
-        {
-            targets: firstname.querySelectorAll(".char p"),
+
+    logo.addEventListener("mouseenter", () => {
+        anime({
+            targets: surname.querySelectorAll(".char p"),
             translateX: 0,
             rotateZ: 0,
             easing: "easeInOutQuart",
-        },
-        "-=1000"
-    );
-});
+        });
+        anime(
+            {
+                targets: firstname.querySelectorAll(".char p"),
+                translateX: "-110%",
+                rotateZ: "-70deg",
+                easing: "easeInOutQuart",
+            },
+            "-=1000"
+        );
+    });
 
-const links = document.querySelectorAll("#navbar #menu a");
+    logo.addEventListener("mouseleave", () => {
+        anime({
+            targets: surname.querySelectorAll(".char p"),
+            translateX: "110%",
+            rotateZ: "-70deg",
+            easing: "easeInOutQuart",
+        });
+        anime(
+            {
+                targets: firstname.querySelectorAll(".char p"),
+                translateX: 0,
+                rotateZ: 0,
+                easing: "easeInOutQuart",
+            },
+            "-=1000"
+        );
+    });
 
-links.forEach((link) => {
-    const text = link.querySelector("p");
-    breakWord(text);
-    const icon = link.querySelector(".icons");
+    const links = document.querySelectorAll("#navbar #menu a");
 
-    link.addEventListener("mouseenter", () => {
+    links.forEach((link) => {
+        const text = link.querySelector("p");
+        breakWord(text);
+        const icon = link.querySelector(".icons");
         anime.set(icon, {
             translateX: "-50%",
         });
         anime.set(icon.querySelector(".material-icons"), {
             translateY: "100%",
         });
-        anime({
-            targets: text.querySelectorAll(".char"),
-            translateY: "-50%",
-            opacity: 0,
-            duration: 700,
-            easing: "easeOutQuart",
-            delay: anime.stagger(100, { from: "center" }),
-        });
-        anime({
-            targets: icon,
-            clipPath: "circle(45.0% at 50% 50%)",
-            translateY: "-50%",
-            duration: 700,
-            easing: "easeOutQuart",
+        link.addEventListener("mouseenter", () => {
+            anime({
+                targets: text.querySelectorAll(".char"),
+                translateY: "-100%",
+                opacity: 0,
+                duration: 650,
+                easing: "easeOutQuart",
+                delay: anime.stagger(100, { from: "center" }),
+            });
+            anime({
+                targets: icon,
+                clipPath: "circle(45.0% at 50% 50%)",
+                translateY: "-50%",
+                duration: 700,
+                easing: "easeOutQuart",
+            });
+
+            anime({
+                targets: icon.querySelector(".material-icons"),
+                translateY: ["100%", 0],
+                duration: 700,
+                easing: "easeOutQuart",
+                delay: 200,
+            });
         });
 
-        anime({
-            targets: icon.querySelector(".material-icons"),
-            translateY: ["100%", 0],
-            duration: 700,
-            easing: "easeOutQuart",
-            delay: 200,
+        link.addEventListener("mouseleave", () => {
+            anime({
+                targets: text.querySelectorAll(".char"),
+                translateY: 0,
+                opacity: 1,
+                duration: 700,
+                delay: 100,
+                easing: "easeInOutQuart",
+                delay: anime.stagger(100, {
+                    from: "center",
+                    direction: "reverse",
+                }),
+            });
+            anime({
+                targets: icon,
+                clipPath: "circle(0.0% at 50% 50%)",
+                translateY: "-25%",
+                duration: 700,
+                easing: "easeInOutQuart",
+                delay: 100,
+            });
+            anime({
+                targets: icon.querySelector(".material-icons"),
+                translateY: "-100%",
+                duration: 600,
+                easing: "easeInOutQuart",
+            });
         });
     });
+}
 
-    link.addEventListener("mouseleave", () => {
-        anime({
-            targets: text.querySelectorAll(".char"),
-            translateY: 0,
-            opacity: 1,
-            duration: 700,
-            easing: "easeInOutQuart",
-            delay: anime.stagger(100, { from: "center", direction: "reverse" }),
-        });
-        anime({
-            targets: icon,
-            clipPath: "circle(0.0% at 50% 50%)",
-            translateY: 0,
-            duration: 700,
-            easing: "easeInOutQuart",
-            delay: 100,
-        });
-        anime({
-            targets: icon.querySelector(".material-icons"),
-            translateY: "-100%",
-            duration: 600,
-            easing: "easeInOutQuart",
-        });
-    });
+const triggerOpt = {
+    start: [0, 1],
+    end: [0.5, 0.65],
+};
+
+const animation = anime({
+    autoplay: false,
+    targets: aboutText,
+    opacity: [0, 1],
+    scaleX: [0.8, 1],
+    scaleY: [0.8, 1],
+    duration: 1000,
+    easing: "linear",
+});
+
+animationTrigger(aboutText, triggerOpt, (ratio) => {
+    animation.seek(animation.duration * ratio);
 });

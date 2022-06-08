@@ -107,6 +107,27 @@ const coverAnimation = () => {
                 complete: function (anim) {},
             },
             `-=${COVER_ANIMATION_TIME / 3}`
+        )
+        .add(
+            {
+                targets: ["#logo #logoFirstname", "#logo #logoSurname"],
+                translateY: ["150%", 0],
+                easing: "easeOutCirc",
+                duration: 350,
+            },
+            `-=300`
+        )
+        .add(
+            {
+                targets: "#menu a p",
+                opacity: [0, 1],
+                color: "red",
+                translateY: ["100%", 0],
+                easing: "easeOutCirc",
+                duration: 350,
+                delay: anime.stagger(100),
+            },
+            `-=150`
         );
 };
 
