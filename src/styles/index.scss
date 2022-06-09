@@ -45,6 +45,7 @@ body {
 }
 
 main {
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
     z-index: 10;
@@ -290,11 +291,12 @@ main {
 }
 
 #projects {
+    overflow: hidden;
     width: 100vw;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 4rem;
+    padding: 9rem 4rem;
 
     p {
         text-transform: uppercase;
@@ -315,9 +317,9 @@ main {
         img {
             z-index: 30;
             position: absolute;
-            max-width: 40vw;
+            max-width: 50vw;
             clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) translateZ(10px);
             pointer-events: none;
         }
 

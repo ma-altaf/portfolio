@@ -194,6 +194,50 @@ if (window.innerWidth > 820) {
     animationTrigger(aboutText, 0.75, () => {
         aboutTextAnimation.play();
     });
+
+    // project section only enable hover when on large enough screen
+    const projectLinks = document.querySelectorAll(".projectLink");
+
+    projectLinks.forEach((link) => {
+        const linkImg = link.querySelector("img");
+        const { width, height } = link.getBoundingClientRect();
+
+        link.addEventListener("mouseleave", () => {
+            anime({
+                targets: linkImg,
+                clipPath: "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)",
+                opacity: 0,
+                easing: "easeOutSine",
+                duration: 300,
+            });
+        });
+
+        link.addEventListener("mousemove", ({ offsetX, offsetY }) => {
+            const eClip = 20;
+            const xClipRatio = offsetX / width;
+            const yClipRatio = offsetY / height;
+            anime({
+                targets: linkImg,
+                opacity: 1,
+                top: offsetY,
+                left: offsetX,
+                easing: "easeOutQuad",
+                duration: 100,
+            });
+
+            anime({
+                targets: linkImg,
+                clipPath: `polygon(
+                ${eClip * (1 - xClipRatio)}% ${eClip * (1 - yClipRatio)}%,
+                 ${100 - eClip * xClipRatio}% ${eClip * (1 - yClipRatio)}%,
+                  ${100 - eClip * xClipRatio}% ${100 - eClip * yClipRatio}%,
+                   ${eClip * (1 - xClipRatio)}% ${100 - eClip * yClipRatio}%)`,
+
+                duration: 300,
+                easing: "easeOutQuad",
+            });
+        });
+    });
 } else {
     // mobile
     setTimeout(() => {
@@ -208,43 +252,6 @@ const aboutTextAnimation = anime({
     duration: 900,
     easing: "easeOutQuad",
     delay: anime.stagger(100),
-});
-
-const projectLinks = document.querySelectorAll(".projectLink");
-
-projectLinks.forEach((link) => {
-    const linkImg = link.querySelector("img");
-    link.addEventListener("mouseenter", () => {
-        anime({
-            targets: link.querySelector("img"),
-            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-            opacity: [0, 1],
-            easing: "easeOutSine",
-            duration: 500,
-        });
-    });
-
-    link.addEventListener("mouseleave", () => {
-        anime({
-            targets: linkImg,
-            clipPath: "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)",
-            opacity: 0,
-            easing: "easeOutSine",
-            duration: 500,
-        });
-    });
-
-    link.addEventListener("mousemove", ({ offsetX, offsetY }) => {
-        anime({
-            targets: linkImg,
-            top: offsetY,
-            left: offsetX,
-            translateX: "-50%",
-            translateY: "-50%",
-            easing: "easeOutSine",
-            duration: 100,
-        });
-    });
 });
 
 const footer = document.querySelector("footer");
