@@ -1,22 +1,31 @@
 import { breakIntoChar } from "./index";
 import anime from "animejs";
-import { animationTrigger } from "./scroll";
+import { animationTrigger, scrollbar } from "./scroll";
 
 const navbar = document.querySelector("#navbar");
 const logo = navbar.querySelector("#logo");
 const aboutText = document.querySelector("#landingSect #aboutPara");
 const firstname = logo.querySelector("#logoFirstname");
 const surname = logo.querySelector("#logoSurname");
-const floatingNav = document.querySelector("#floatingNav");
+const floatingNav = document.getElementById("floatingNav");
+const floatingNavContent = document.querySelector("#floatingNavContent");
 const titleWords = document.querySelectorAll("#title .word");
 
-new IntersectionObserver(toggleFloatingNav, {
+const navIOb = new IntersectionObserver(toggleFloatingNav, {
     threshold: 0.5,
-}).observe(titleWords[0]);
+});
+
+navIOb.observe(titleWords[0]);
+
+if (window.innerWidth <= 820) {
+    navIOb.disconnect();
+}
 
 let isFloatingNavVisible = true;
 
 function toggleFloatingNav() {
+    floatingNav.style.pointerEvents = isFloatingNavVisible ? "none" : "auto";
+
     anime({
         targets: floatingNav,
         clipPath: isFloatingNavVisible
@@ -28,10 +37,11 @@ function toggleFloatingNav() {
     });
 
     anime({
-        targets: floatingNav.querySelectorAll(".material-icons"),
-        translateY: isFloatingNavVisible ? "-100%" : ["200%", 0],
+        targets: floatingNav.querySelectorAll("div .menuBars"),
+        translateY: isFloatingNavVisible ? "-1rem" : ["3rem", 0],
         duration: 700,
         easing: isFloatingNavVisible ? "easeInOutQuart" : "easeOutQuart",
+        delay: anime.stagger(100),
     });
 
     isFloatingNavVisible = !isFloatingNavVisible;
@@ -59,10 +69,35 @@ floatingNav.addEventListener("mouseleave", () => {
 
 let isNavOpen = false;
 
+anime.set(floatingNavContent.querySelectorAll("ul li"), {
+    translateX: "50%",
+});
+
 floatingNav.addEventListener("click", () => {
-    console.log("navbar open/close");
+    anime({
+        targets: floatingNavContent,
+        clipPath: isNavOpen
+            ? [
+                  "polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                  "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+              ]
+            : [
+                  "polygon(80% 0%, 100% 0%, 100% 100%, 100% 100%)",
+                  "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+              ],
+        easing: "easeOutQuart",
+        duration: 700,
+    });
+
+    anime({
+        targets: floatingNavContent.querySelectorAll("ul li"),
+        translateX: isNavOpen ? "50%" : ["50%", 0],
+        easing: "easeOutQuart",
+        duration: 700,
+    });
 
     isNavOpen = !isNavOpen;
+    scrollbar.updatePluginOptions("pause", { pause: isNavOpen });
 });
 
 if (window.innerWidth > 820) {
@@ -175,19 +210,24 @@ if (window.innerWidth > 820) {
             });
         });
     });
+
+    animationTrigger(aboutText, 0.75, () => {
+        aboutTextAnimation.play();
+    });
+} else {
+    // mobile
+    setTimeout(() => {
+        aboutTextAnimation.play();
+    }, 2100);
 }
 
-const animation = anime({
+const aboutTextAnimation = anime({
     autoplay: false,
     targets: aboutText.querySelectorAll("div pre p"),
     translateY: ["120%", 0],
-    duration: 850,
+    duration: 900,
     easing: "easeOutQuad",
     delay: anime.stagger(100),
-});
-
-animationTrigger(aboutText, 0.75, () => {
-    animation.play();
 });
 
 const footer = document.querySelector("footer");
