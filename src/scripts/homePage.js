@@ -2,10 +2,68 @@ import { breakIntoChar } from "./index";
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
 
-const logo = document.querySelector("#logo");
+const navbar = document.querySelector("#navbar");
+const logo = navbar.querySelector("#logo");
 const aboutText = document.querySelector("#landingSect #aboutPara");
 const firstname = logo.querySelector("#logoFirstname");
 const surname = logo.querySelector("#logoSurname");
+const floatingNav = document.querySelector("#floatingNav");
+const titleWords = document.querySelectorAll("#title .word");
+
+new IntersectionObserver(toggleFloatingNav, {
+    threshold: 0.5,
+}).observe(titleWords[0]);
+
+let isFloatingNavVisible = true;
+
+function toggleFloatingNav() {
+    anime({
+        targets: floatingNav,
+        clipPath: isFloatingNavVisible
+            ? "circle(0% at 50% 50%)"
+            : "circle(45% at 50% 50%)",
+        duration: 700,
+        easing: isFloatingNavVisible ? "easeInOutQuart" : "easeOutQuart",
+        delay: isFloatingNavVisible ? 100 : 0,
+    });
+
+    anime({
+        targets: floatingNav.querySelectorAll(".material-icons"),
+        translateY: isFloatingNavVisible ? "-100%" : ["200%", 0],
+        duration: 700,
+        easing: isFloatingNavVisible ? "easeInOutQuart" : "easeOutQuart",
+    });
+
+    isFloatingNavVisible = !isFloatingNavVisible;
+}
+
+floatingNav.addEventListener("mouseenter", () => {
+    anime({
+        targets: floatingNav.querySelectorAll(".material-icons"),
+        scaleX: 1.3,
+        scaleY: 1.3,
+        duration: 500,
+        easing: "easeOutQuart",
+    });
+});
+
+floatingNav.addEventListener("mouseleave", () => {
+    anime({
+        targets: floatingNav.querySelectorAll(".material-icons"),
+        scaleX: 1,
+        scaleY: 1,
+        duration: 500,
+        easing: "easeOutQuart",
+    });
+});
+
+let isNavOpen = false;
+
+floatingNav.addEventListener("click", () => {
+    console.log("navbar open/close");
+
+    isNavOpen = !isNavOpen;
+});
 
 if (window.innerWidth > 820) {
     breakIntoChar(firstname);
@@ -52,7 +110,7 @@ if (window.innerWidth > 820) {
         );
     });
 
-    const links = document.querySelectorAll("#navbar #menu a");
+    const links = navbar.querySelectorAll("#navbar #menu a");
 
     links.forEach((link) => {
         const text = link.querySelector("p");
@@ -61,9 +119,7 @@ if (window.innerWidth > 820) {
         anime.set(icon, {
             translateX: "-50%",
         });
-        anime.set(icon.querySelector(".material-icons"), {
-            translateY: "100%",
-        });
+
         link.addEventListener("mouseenter", () => {
             anime({
                 targets: text.querySelectorAll(".char"),
@@ -124,7 +180,7 @@ if (window.innerWidth > 820) {
 const animation = anime({
     autoplay: false,
     targets: aboutText.querySelectorAll("div pre p"),
-    translateY: ["150%", 0],
+    translateY: ["120%", 0],
     duration: 850,
     easing: "easeOutQuad",
     delay: anime.stagger(100),
@@ -132,4 +188,21 @@ const animation = anime({
 
 animationTrigger(aboutText, 0.75, () => {
     animation.play();
+});
+
+const footer = document.querySelector("footer");
+const footerContent = footer.querySelector("#footerContent");
+
+const footerRevealAnim = anime({
+    autoplay: false,
+    targets: footerContent,
+    translateY: ["-50%", 0],
+    translateZ: 1,
+    easing: "linear",
+    delay: 100,
+    duration: 1000,
+});
+
+animationTrigger(footer, { end: [0, 0] }, (ratio) => {
+    footerRevealAnim.seek(footerRevealAnim.duration * ratio);
 });

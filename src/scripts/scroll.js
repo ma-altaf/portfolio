@@ -23,25 +23,9 @@ const scrollbar = Scrollbar.init(document.querySelector("main"), {
     sync: true,
 });
 
-const seekThreshold = [];
-
-for (let i = 0; i <= 1.01; i += 0.01) {
-    seekThreshold.push(Math.round(i * 100) / 100);
-}
-
 // solution does not trigger in the middle of the screen
 // trigger animation on intersection
 const animationTrigger = (element, threshold = 1, callback) => {
-    if (element instanceof NodeList) {
-        element.forEach((el) => {
-            AddAnimationHnadler(el, threshold, callback);
-        });
-    } else {
-        AddAnimationHnadler(element, threshold, callback);
-    }
-};
-
-function AddAnimationHnadler(element, threshold, callback) {
     new IntersectionObserver(
         (entries, observer) => {
             entries.forEach((entry) => {
@@ -67,7 +51,7 @@ function AddAnimationHnadler(element, threshold, callback) {
             threshold: typeof threshold === "object" ? 0 : threshold,
         }
     ).observe(element);
-}
+};
 
 function ratioCalculator(
     element,
@@ -85,17 +69,12 @@ function ratioCalculator(
     const elMiddle = elEndMarker - elStartMarker / 2;
     const winMiddle =
         winHeight * winEndOffset +
-        (winHeight * winStartOffset - winHeight * winEndOffset) / 2;
+        (winHeight * (winStartOffset - winEndOffset)) / 2;
     const maxRatio =
-        elMiddle + (winHeight * winStartOffset - winHeight * winEndOffset) / 2;
+        elMiddle + (winHeight * (winStartOffset - winEndOffset)) / 2;
 
     const ratio =
-        Math.round(
-            (0.5 -
-                0.5 *
-                    ((top + elStartMarker + elMiddle - winMiddle) / maxRatio)) *
-                100
-        ) / 100;
+        0.5 - 0.5 * ((top + elStartMarker + elMiddle - winMiddle) / maxRatio);
 
     // element out of view remove listner
     if (bottom <= 0) {
