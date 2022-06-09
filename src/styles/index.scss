@@ -34,6 +34,7 @@
     will-change: contents;
 }
 
+html,
 body {
     background-color: var(--primaryColor);
     min-width: 100vw;
@@ -106,6 +107,29 @@ main {
         color: var(--primaryColor);
         font-size: 5rem;
         padding: 0.5rem;
+    }
+
+    a {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            height: 3px;
+            border-radius: 1.5px;
+            z-index: -1;
+            width: 100%;
+            background-color: var(--accent-color);
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+            transform-origin: right;
+        }
+        &:hover::after,
+        :focus::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
     }
 }
 
@@ -277,6 +301,7 @@ main {
     }
 
     .projectLink {
+        position: relative;
         width: 100%;
         font-size: 8rem;
         height: 50vh;
@@ -286,6 +311,19 @@ main {
         font-weight: 300;
         text-transform: uppercase;
         color: var(--secondaryColor);
+
+        img {
+            z-index: 30;
+            position: absolute;
+            max-width: 40vw;
+            clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        p {
+            pointer-events: none;
+        }
     }
 
     span {
@@ -329,13 +367,8 @@ footer {
     }
 
     #floatingNav {
-        margin: 0;
-        transform: scale(0.9);
-        background-color: transparent;
-
-        .menuBars {
-            background-color: var(--secondaryColor) !important;
-        }
+        margin: 1rem;
+        padding: 1rem;
     }
     #floatingNavContent {
         width: 100vw;

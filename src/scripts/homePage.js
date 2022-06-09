@@ -11,15 +11,9 @@ const floatingNav = document.getElementById("floatingNav");
 const floatingNavContent = document.querySelector("#floatingNavContent");
 const titleWords = document.querySelectorAll("#title .word");
 
-const navIOb = new IntersectionObserver(toggleFloatingNav, {
+new IntersectionObserver(toggleFloatingNav, {
     threshold: 0.5,
-});
-
-navIOb.observe(titleWords[0]);
-
-if (window.innerWidth <= 820) {
-    navIOb.disconnect();
-}
+}).observe(titleWords[0]);
 
 let isFloatingNavVisible = true;
 
@@ -47,26 +41,6 @@ function toggleFloatingNav() {
     isFloatingNavVisible = !isFloatingNavVisible;
 }
 
-floatingNav.addEventListener("mouseenter", () => {
-    anime({
-        targets: floatingNav.querySelectorAll(".material-icons"),
-        scaleX: 1.3,
-        scaleY: 1.3,
-        duration: 500,
-        easing: "easeOutQuart",
-    });
-});
-
-floatingNav.addEventListener("mouseleave", () => {
-    anime({
-        targets: floatingNav.querySelectorAll(".material-icons"),
-        scaleX: 1,
-        scaleY: 1,
-        duration: 500,
-        easing: "easeOutQuart",
-    });
-});
-
 let isNavOpen = false;
 
 anime.set(floatingNavContent.querySelectorAll("ul li"), {
@@ -74,6 +48,12 @@ anime.set(floatingNavContent.querySelectorAll("ul li"), {
 });
 
 floatingNav.addEventListener("click", () => {
+    anime({
+        targets: floatingNav.querySelectorAll("div .menuBars"),
+        scaleX: isNavOpen ? 1 : anime.stagger([1, 0.1]),
+        delay: anime.stagger(50),
+    });
+
     anime({
         targets: floatingNavContent,
         clipPath: isNavOpen
@@ -228,6 +208,43 @@ const aboutTextAnimation = anime({
     duration: 900,
     easing: "easeOutQuad",
     delay: anime.stagger(100),
+});
+
+const projectLinks = document.querySelectorAll(".projectLink");
+
+projectLinks.forEach((link) => {
+    const linkImg = link.querySelector("img");
+    link.addEventListener("mouseenter", () => {
+        anime({
+            targets: link.querySelector("img"),
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            opacity: [0, 1],
+            easing: "easeOutSine",
+            duration: 500,
+        });
+    });
+
+    link.addEventListener("mouseleave", () => {
+        anime({
+            targets: linkImg,
+            clipPath: "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)",
+            opacity: 0,
+            easing: "easeOutSine",
+            duration: 500,
+        });
+    });
+
+    link.addEventListener("mousemove", ({ offsetX, offsetY }) => {
+        anime({
+            targets: linkImg,
+            top: offsetY,
+            left: offsetX,
+            translateX: "-50%",
+            translateY: "-50%",
+            easing: "easeOutSine",
+            duration: 100,
+        });
+    });
 });
 
 const footer = document.querySelector("footer");
