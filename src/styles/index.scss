@@ -66,6 +66,7 @@ main {
     align-items: center;
     clip-path: circle(45% at 50% 50%);
     aspect-ratio: 1/1;
+
     div {
         display: flex;
         justify-content: center;
@@ -317,7 +318,7 @@ main {
         img {
             z-index: 30;
             position: absolute;
-            max-width: 50vw;
+            max-width: 40vw;
             clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
             transform: translate(-50%, -50%) translateZ(10px);
             pointer-events: none;
@@ -339,26 +340,82 @@ main {
     #moreProject {
         text-decoration: none;
         color: var(--secondaryColor);
+        position: relative;
+        width: fit-content;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 1.2px;
+            z-index: -1;
+            width: 100%;
+            background-color: var(--secondaryColor);
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+            transform-origin: right;
+        }
+        &:hover::after,
+        :focus::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
     }
 }
 
 footer {
     overflow: hidden;
     z-index: -1;
-    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
     background-color: var(--secondaryColor);
 
     #footerContent {
-        color: var(--primaryColor);
-        padding: 4rem;
         width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: 100%;
+        padding: 4rem;
 
-        h2 {
-            font-size: 4rem;
+        #footerBody {
+            max-width: 60vw;
+            padding: 4rem;
+            color: var(--primaryColor);
+            position: relative;
+
+            h2 {
+                font-size: 5rem;
+            }
+
+            #contactBtn {
+                text-decoration: none;
+                width: fit-content;
+                border-radius: 4rem;
+                background-color: var(--accent-color);
+                display: flex;
+                flex-direction: column;
+                margin-top: 3rem;
+                padding: 1.5rem 2.5rem;
+
+                p {
+                    font-size: 1.5rem;
+                    color: var(--secondaryColor);
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    #author {
+        position: absolute;
+        padding: 4rem 8rem;
+        color: var(--primaryColor);
+        bottom: 0;
+        right: 0;
+
+        b {
+            color: var(--accent-color);
+            font-weight: 300;
         }
     }
 }

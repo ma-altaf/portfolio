@@ -1,4 +1,4 @@
-import { breakIntoChar } from "./index";
+import { breakIntoChar, breakIntoWord } from "./index";
 import anime from "animejs";
 import { animationTrigger, scrollbar } from "./scroll";
 
@@ -40,6 +40,19 @@ function toggleFloatingNav() {
 
     isFloatingNavVisible = !isFloatingNavVisible;
 }
+
+floatingNav.addEventListener("mouseenter", () => {
+    anime({
+        targets: floatingNav,
+        clipPath: "circle(49% at 50% 50%)",
+    });
+});
+floatingNav.addEventListener("mouseleave", () => {
+    anime({
+        targets: floatingNav,
+        clipPath: "circle(45% at 50% 50%)",
+    });
+});
 
 let isNavOpen = false;
 
@@ -212,8 +225,15 @@ if (window.innerWidth > 820) {
             });
         });
 
+        link.addEventListener("mouseenter", ({ offsetX, offsetY }) => {
+            anime.set(linkImg, {
+                top: offsetY,
+                left: offsetX,
+            });
+        });
+
         link.addEventListener("mousemove", ({ offsetX, offsetY }) => {
-            const eClip = 20;
+            const eClip = 10;
             const xClipRatio = offsetX / width;
             const yClipRatio = offsetY / height;
             anime({
@@ -232,7 +252,6 @@ if (window.innerWidth > 820) {
                  ${100 - eClip * xClipRatio}% ${eClip * (1 - yClipRatio)}%,
                   ${100 - eClip * xClipRatio}% ${100 - eClip * yClipRatio}%,
                    ${eClip * (1 - xClipRatio)}% ${100 - eClip * yClipRatio}%)`,
-
                 duration: 300,
                 easing: "easeOutQuad",
             });
@@ -256,17 +275,23 @@ const aboutTextAnimation = anime({
 
 const footer = document.querySelector("footer");
 const footerContent = footer.querySelector("#footerContent");
+const contactBtn = footerContent.querySelector("#contactBtn");
 
 const footerRevealAnim = anime({
     autoplay: false,
     targets: footerContent,
-    translateY: ["-50%", 0],
+    translateY: ["-65%", 0],
     translateZ: 1,
     easing: "linear",
-    delay: 100,
-    duration: 1000,
+});
+
+const contactBtnAnimation = anime({
+    targets: contactBtn,
+    translateY: ["-60%", 0],
+    easing: "linear",
 });
 
 animationTrigger(footer, { end: [0, 0] }, (ratio) => {
     footerRevealAnim.seek(footerRevealAnim.duration * ratio);
+    contactBtnAnimation.seek(contactBtnAnimation.duration * ratio);
 });
