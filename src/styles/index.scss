@@ -96,8 +96,9 @@ main {
     top: 0;
     right: 0;
     height: 100vh;
-    width: 36vw;
+    min-width: 40vw;
     background-color: var(--secondaryColor);
+    white-space: no-wrap;
     color: var(--primaryColor);
     padding: 4rem;
     display: flex;

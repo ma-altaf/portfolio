@@ -1,15 +1,16 @@
 import { breakIntoChar } from "./index";
 import anime from "animejs/lib/anime.es.js";
-
-const cover = document.querySelector("#cover");
-const namebox = cover.querySelector("#name-box");
-const surname = namebox.querySelector("#surname");
-const firstname = namebox.querySelector("#firstname");
-const titleWords = document.querySelectorAll("#title .word");
+import { initScrollbar } from "./scroll";
+import { initNavBar } from "./navBar";
 
 const COVER_ANIMATION_TIME = 1100;
 
 const coverAnimation = () => {
+    const cover = document.querySelector("#cover");
+    const namebox = cover.querySelector("#name-box");
+    const surname = namebox.querySelector("#surname");
+    const firstname = namebox.querySelector("#firstname");
+
     const coverTL = anime.timeline();
     breakIntoChar(surname);
     surname.querySelectorAll(".char").forEach((el, index) => {
@@ -127,6 +128,10 @@ const coverAnimation = () => {
             },
             `-=150`
         );
+
+    // once does not trigger the global hook
+    initScrollbar();
+    initNavBar();
 };
 
 export default coverAnimation;

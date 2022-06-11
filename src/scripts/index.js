@@ -1,5 +1,8 @@
 import barba from "@barba/core";
 import coverAnimation from "./coverAnimation";
+import { homeInit } from "./homePage";
+import { initNavBar } from "./navBar";
+import { initScrollbar, scrollbar } from "./scroll";
 
 console.log(
     "%cI designed and coded the website, so I probably still remember how it worked 😅.",
@@ -30,6 +33,17 @@ barba.init({
             once: () => coverAnimation(),
         },
     ],
+    views: [
+        {
+            namespace: "home",
+            beforeEnter: () => homeInit(),
+        },
+    ],
+});
+
+barba.hooks.after(() => {
+    initScrollbar();
+    initNavBar();
 });
 
 export { breakIntoChar, breakIntoWord };

@@ -16,10 +16,14 @@ class PausePlugin extends ScrollbarPlugin {
 Scrollbar.use(PausePlugin, OverscrollPlugin);
 
 // global/helper functions
-const scrollbar = Scrollbar.init(document.querySelector("main"), {
-    damping: 0.07,
-    sync: true,
-});
+let scrollbar;
+
+function initScrollbar() {
+    scrollbar = Scrollbar.init(document.querySelector("main"), {
+        damping: 0.07,
+        sync: true,
+    });
+}
 
 // solution does not trigger in the middle of the screen
 // trigger animation on intersection
@@ -87,4 +91,4 @@ function ratioCalculator(
     return ratio;
 }
 
-export { scrollbar, animationTrigger };
+export { scrollbar, initScrollbar, animationTrigger };
