@@ -295,3 +295,62 @@ animationTrigger(footer, { end: [0, 0] }, (ratio) => {
     footerRevealAnim.seek(footerRevealAnim.duration * ratio);
     contactBtnAnimation.seek(contactBtnAnimation.duration * ratio);
 });
+
+anime.set(contactBtn.querySelector("span"), {
+    translateX: "-200%",
+    opacity: 0,
+});
+
+contactBtn.addEventListener("mouseenter", () => {
+    anime({
+        targets: contactBtn.querySelector("span"),
+        translateX: "-100%",
+        opacity: 1,
+        duration: 300,
+        easing: "easeOutQuad",
+    });
+});
+contactBtn.addEventListener("mouseleave", () => {
+    anime({
+        targets: contactBtn.querySelector("span"),
+        translateX: "-200%",
+        opacity: 0,
+        duration: 300,
+        easing: "easeOutQuad",
+    });
+});
+
+const title = document.querySelectorAll("#title .word pre");
+
+title.forEach((word) => {
+    breakIntoChar(word);
+
+    const letters = word.querySelectorAll(".char p");
+    letters.forEach((letter, i) => {
+        let colorSet = false;
+        letter.addEventListener("mouseenter", () => {
+            anime({
+                targets: letter,
+                translateY: "-100%",
+                translateX: "100%",
+                duration: 200,
+                easing: "easeInQuad",
+                complete: () => {
+                    colorSet = !colorSet;
+                    anime.set(letter, {
+                        translateY: "100%",
+                        translateX: "-100%",
+                        backgroundColor: colorSet ? "black" : "transparent",
+                    }),
+                        anime({
+                            targets: letter,
+                            translateY: 0,
+                            translateX: 0,
+                            duration: 200,
+                            easing: "easeOutQuad",
+                        });
+                },
+            });
+        });
+    });
+});

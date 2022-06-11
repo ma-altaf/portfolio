@@ -5,14 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Altaf M.Agowun personal portfolio" />
-        <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"
-        />
         <title>Altaf Agowun</title>
+        <noscript>This website requires javascript</noscript>
     </head>
 
-    <body>
+    <body data-barba="wrapper">
         <div id="cover">
             <div id="name-box">
                 <div id="surname">AGOWUN</div>
@@ -29,32 +26,32 @@
         </div>
         <div id="floatingNavContent">
             <ul>
-                <li><a href="">Works</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="./work.html">Works</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
             </ul>
         </div>
 
-        <main>
+        <main data-barba="container" data-barba-namespace="home">
             <nav id="navbar">
                 <div id="logo">
                     <div id="logoFirstname">Altaf</div>
                     <div id="logoSurname">Agowun</div>
                 </div>
                 <div id="menu">
-                    <a href="#"
+                    <a href="./work.html"
                         ><p>works</p>
                         <div class="icons">
                             <span class="material-icons"> code </span>
                         </div></a
                     >
-                    <a href="#"
+                    <a href="./about.html"
                         ><p>About</p>
                         <div class="icons">
                             <span class="material-icons"> person </span>
                         </div></a
                     >
-                    <a href="#"
+                    <a href="./contact.html"
                         ><p>Contact</p>
                         <div class="icons">
                             <span class="material-icons">
@@ -66,9 +63,9 @@
             </nav>
             <section id="landingSect">
                 <h1 id="title">
-                    <div class="word"><p>Creative</p></div>
-                    <div class="word"><p>Software</p></div>
-                    <div class="word"><p>Developer</p></div>
+                    <div class="word"><pre>Creative</pre></div>
+                    <div class="word"><pre>Software</pre></div>
+                    <div class="word"><pre>Developer</pre></div>
                 </h1>
 
                 <div id="aboutPara">
@@ -102,14 +99,17 @@
                     <p>Shihenna</p>
                     <img src="./assets/project3.jpg" alt="Shihenna app display"
                 /></a>
-                <a href="#" id="moreProject">See More Projects</a>
+                <a href="./work.html" id="moreProject">See More Projects</a>
             </section>
             <footer>
                 <div id="footerContent">
                     <div id="footerBody">
                         <h2>Looking for a new member?</h2>
-                        <a href="#" id="contactBtn">
-                            <p>Contact Me</p>
+                        <a href="./contact.html" id="contactBtn">
+                            <p>
+                                Get in touch
+                                <span class="material-icons">east</span>
+                            </p>
                         </a>
                     </div>
                     <p id="author">Developed by <b>A.Altaf</b></p>

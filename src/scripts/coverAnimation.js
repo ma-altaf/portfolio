@@ -97,13 +97,12 @@ const coverAnimation = () => {
         )
         .add(
             {
-                targets: "#title .word p",
+                targets: "#title .word pre",
                 translateY: ["150%", 0],
                 rotateZ: [10, 0],
                 easing: "easeOutCirc",
                 duration: 650,
-                delay: anime.stagger(50),
-                complete: function (anim) {},
+                delay: anime.stagger(100),
             },
             `-=${COVER_ANIMATION_TIME / 3}`
         )
@@ -118,7 +117,7 @@ const coverAnimation = () => {
         )
         .add(
             {
-                targets: "#menu a p",
+                targets: "#menu a",
                 opacity: [0, 1],
                 color: "red",
                 translateY: ["100%", 0],
@@ -130,4 +129,4 @@ const coverAnimation = () => {
         );
 };
 
-coverAnimation(); // TODO: re-enable
+export default coverAnimation;

@@ -1,5 +1,8 @@
+import barba from "@barba/core";
+import coverAnimation from "./coverAnimation";
+
 console.log(
-    "%cI coded and designed it, so I probably still remember how it worked 😅.",
+    "%cI designed and coded the website, so I probably still remember how it worked 😅.",
     "color:#ffeaa7; background-color:black; padding:0.5rem;"
 );
 
@@ -16,5 +19,17 @@ const breakIntoWord = (element) => {
         "<pre class='word'><p>$&</p></pre>"
     );
 };
+
+barba.init({
+    transitions: [
+        {
+            name: "homeOnce",
+            to: {
+                namespace: "home",
+            },
+            once: () => coverAnimation(),
+        },
+    ],
+});
 
 export { breakIntoChar, breakIntoWord };
