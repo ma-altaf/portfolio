@@ -12,23 +12,22 @@ export function initNavBar() {
     anime.set(floatingNav, {
         clipPath: "circle(0% at 50% 50%)",
     });
+
     scrollbar.addListener((event) => {
         if (isFloatingNavVisible) {
             if (event.offset.y > NAV_TRIGGER) {
                 isFloatingNavVisible = false;
-
-                toggleFloatingNav();
+                toggleFloatingNav(isFloatingNavVisible);
             }
         } else {
             if (event.offset.y < NAV_TRIGGER) {
                 isFloatingNavVisible = true;
-
-                toggleFloatingNav();
+                toggleFloatingNav(isFloatingNavVisible);
             }
         }
     });
 
-    function toggleFloatingNav() {
+    function toggleFloatingNav(isFloatingNavVisible) {
         floatingNav.style.pointerEvents = isFloatingNavVisible
             ? "none"
             : "auto";
@@ -69,7 +68,20 @@ export function initNavBar() {
         translateX: "50%",
     });
 
+    floatingNavContent.querySelectorAll("ul li").forEach((el) => {
+        const link = el.querySelector("a");
+        console.log(link);
+        link.onclick = () => {
+            toggleNavContent();
+            toggleFloatingNav(false);
+        };
+    });
+
     floatingNav.addEventListener("click", () => {
+        toggleNavContent();
+    });
+
+    function toggleNavContent() {
         anime({
             targets: floatingNav.querySelectorAll("div .menuBars"),
             scaleX: isNavOpen ? 1 : anime.stagger([1, 0.1]),
@@ -100,5 +112,5 @@ export function initNavBar() {
 
         isNavOpen = !isNavOpen;
         scrollbar.updatePluginOptions("pause", { pause: isNavOpen });
-    });
+    }
 }
