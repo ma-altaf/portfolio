@@ -1,8 +1,11 @@
-import barba from "@barba/core";
+import { aboutPageInit } from "./aboutPage";
+import { contactPageInit } from "./contactPage";
 import coverAnimation from "./coverAnimation";
-import { homeInit } from "./homePage";
+import { homePageInit } from "./homePage";
 import { initNavBar } from "./navBar";
-import { initScrollbar, scrollbar } from "./scroll";
+import { initScrollbar } from "./scroll";
+import { workPageInit } from "./workPage";
+import barba from "@barba/core";
 
 console.log(
     "%cI designed and coded the website, so I probably still remember how it worked 😅.",
@@ -26,24 +29,49 @@ const breakIntoWord = (element) => {
 barba.init({
     transitions: [
         {
-            name: "homeOnce",
+            name: "welcome",
+            once: () => coverAnimation(),
             to: {
                 namespace: "home",
             },
-            once: () => coverAnimation(),
         },
     ],
     views: [
         {
             namespace: "home",
-            beforeEnter: () => homeInit(),
+            afterEnter: () => {
+                homePageInit();
+                initScrollbar();
+                initNavBar();
+            },
         },
     ],
 });
 
-barba.hooks.after(() => {
+barba.hooks.after((data) => {
     initScrollbar();
     initNavBar();
+    pageInit(data.next.namespace);
 });
+
+function pageInit(namespace) {
+    switch (namespace) {
+        case "home":
+            homePageInit();
+            break;
+        case "work":
+            workPageInit();
+            break;
+        case "contact":
+            contactPageInit();
+            break;
+        case "about":
+            aboutPageInit();
+            break;
+
+        default:
+            break;
+    }
+}
 
 export { breakIntoChar, breakIntoWord };

@@ -267,9 +267,14 @@ main {
         font-size: 10vw;
         max-width: 80vw;
 
+        pre {
+            width: 100%;
+            display: flex;
+        }
+
         .word {
             display: flex;
-            width: fit-content;
+            width: 100%;
             overflow: hidden;
         }
     }

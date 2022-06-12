@@ -128,10 +128,6 @@ const coverAnimation = () => {
             },
             `-=150`
         );
-
-    // once does not trigger the global hook
-    initScrollbar();
-    initNavBar();
 };
 
 export default coverAnimation;

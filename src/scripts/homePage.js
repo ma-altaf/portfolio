@@ -1,9 +1,8 @@
 import { breakIntoChar } from "./index";
 import anime from "animejs";
-import { animationTrigger, initScrollbar } from "./scroll";
-import { initNavBar } from "./navBar";
+import { animationTrigger } from "./scroll";
 
-export function homeInit() {
+export function homePageInit() {
     const navbar = document.querySelector("#navbar");
     const logo = navbar.querySelector("#logo");
     const aboutText = document.querySelector("#landingSect #aboutPara");
@@ -257,7 +256,7 @@ export function homeInit() {
                         anime.set(letter, {
                             translateY: "100%",
                             translateX: "-100%",
-                            backgroundColor: colorSet ? "black" : "transparent",
+                            // backgroundColor: colorSet ? "black" : "transparent",
                         }),
                             anime({
                                 targets: letter,

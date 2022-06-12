@@ -70,7 +70,6 @@ export function initNavBar() {
 
     floatingNavContent.querySelectorAll("ul li").forEach((el) => {
         const link = el.querySelector("a");
-        console.log(link);
         link.onclick = () => {
             toggleNavContent();
             toggleFloatingNav(false);

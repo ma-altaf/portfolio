@@ -2,6 +2,7 @@
 
 // import scss
 import "./styles/index.scss";
+import "./styles/about.scss";
 
 // import scripts
 import "./scripts/index";
