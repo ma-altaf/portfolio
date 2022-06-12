@@ -130,6 +130,7 @@ export function homePageInit() {
         projectLinks.forEach((link) => {
             const linkImg = link.querySelector("img");
             const { width, height } = link.getBoundingClientRect();
+            const eClip = 10;
 
             link.addEventListener("mouseleave", () => {
                 anime({
@@ -146,30 +147,22 @@ export function homePageInit() {
                     top: offsetY,
                     left: offsetX,
                 });
+                anime({
+                    targets: linkImg,
+                    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                    opacity: 1,
+                    duration: 300,
+                    easing: "easeOutSine",
+                });
             });
 
             link.addEventListener("mousemove", ({ offsetX, offsetY }) => {
-                const eClip = 10;
-                const xClipRatio = offsetX / width;
-                const yClipRatio = offsetY / height;
                 anime({
                     targets: linkImg,
-                    opacity: 1,
                     top: offsetY,
                     left: offsetX,
                     easing: "easeOutQuad",
                     duration: 100,
-                });
-
-                anime({
-                    targets: linkImg,
-                    clipPath: `polygon(
-                ${eClip * (1 - xClipRatio)}% ${eClip * (1 - yClipRatio)}%,
-                 ${100 - eClip * xClipRatio}% ${eClip * (1 - yClipRatio)}%,
-                  ${100 - eClip * xClipRatio}% ${100 - eClip * yClipRatio}%,
-                   ${eClip * (1 - xClipRatio)}% ${100 - eClip * yClipRatio}%)`,
-                    duration: 300,
-                    easing: "easeOutQuad",
                 });
             });
         });
