@@ -9,6 +9,15 @@ export function homePageInit() {
     const firstname = logo.querySelector("#logoFirstname");
     const surname = logo.querySelector("#logoSurname");
 
+    const aboutTextAnimation = anime({
+        autoplay: false,
+        targets: aboutText.querySelectorAll("div pre p"),
+        translateY: ["120%", 0],
+        duration: 950,
+        easing: "easeOutQuad",
+        delay: anime.stagger(150),
+    });
+
     if (window.innerWidth > 820) {
         breakIntoChar(firstname);
         breakIntoChar(surname);
@@ -120,17 +129,49 @@ export function homePageInit() {
             });
         });
 
+        const title = document.querySelectorAll("#title .word pre");
+
+        title.forEach((word) => {
+            breakIntoChar(word);
+
+            const letters = word.querySelectorAll(".char p");
+            letters.forEach((letter) => {
+                const randomNum = () => Math.random();
+                letter.addEventListener("mouseenter", () => {
+                    anime({
+                        targets: letter,
+                        translateY: randomNum() > 0.5 ? "-100%" : "100%",
+                        translateX: randomNum() > 0.5 ? "-100%" : "100%",
+                        duration: 300,
+                        easing: "easeInQuad",
+                        complete: () => {
+                            anime.set(letter, {
+                                translateY:
+                                    randomNum() > 0.5 ? "-100%" : "100%",
+                                translateX:
+                                    randomNum() > 0.5 ? "-100%" : "100%",
+                            }),
+                                anime({
+                                    targets: letter,
+                                    translateY: 0,
+                                    translateX: 0,
+                                    duration: 300,
+                                    easing: "easeOutQuad",
+                                });
+                        },
+                    });
+                });
+            });
+        });
+
         animationTrigger(aboutText, 0.75, () => {
             aboutTextAnimation.play();
         });
 
-        // project section only enable hover when on large enough screen
         const projectLinks = document.querySelectorAll(".projectLink");
 
         projectLinks.forEach((link) => {
             const linkImg = link.querySelector("img");
-            const { width, height } = link.getBoundingClientRect();
-            const eClip = 10;
 
             link.addEventListener("mouseleave", () => {
                 anime({
@@ -172,15 +213,6 @@ export function homePageInit() {
             aboutTextAnimation.play();
         }, 2100);
     }
-
-    const aboutTextAnimation = anime({
-        autoplay: false,
-        targets: aboutText.querySelectorAll("div pre p"),
-        translateY: ["120%", 0],
-        duration: 900,
-        easing: "easeOutQuad",
-        delay: anime.stagger(100),
-    });
 
     const footer = document.querySelector("footer");
     const footerContent = footer.querySelector("#footerContent");
@@ -226,41 +258,6 @@ export function homePageInit() {
             opacity: 0,
             duration: 300,
             easing: "easeOutQuad",
-        });
-    });
-
-    const title = document.querySelectorAll("#title .word pre");
-
-    title.forEach((word) => {
-        breakIntoChar(word);
-
-        const letters = word.querySelectorAll(".char p");
-        letters.forEach((letter, i) => {
-            let colorSet = false;
-            letter.addEventListener("mouseenter", () => {
-                anime({
-                    targets: letter,
-                    translateY: "-100%",
-                    translateX: "100%",
-                    duration: 200,
-                    easing: "easeInQuad",
-                    complete: () => {
-                        colorSet = !colorSet;
-                        anime.set(letter, {
-                            translateY: "100%",
-                            translateX: "-100%",
-                            // backgroundColor: colorSet ? "black" : "transparent",
-                        }),
-                            anime({
-                                targets: letter,
-                                translateY: 0,
-                                translateX: 0,
-                                duration: 200,
-                                easing: "easeOutQuad",
-                            });
-                    },
-                });
-            });
         });
     });
 }

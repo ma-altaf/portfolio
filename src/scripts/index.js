@@ -36,25 +36,30 @@ barba.init({
             },
         },
     ],
-    views: [
-        {
-            namespace: "home",
-            afterEnter: () => {
-                homePageInit();
-                initScrollbar();
-                initNavBar();
-            },
-        },
-    ],
+    requestError: (trigger, action, url, response) => {
+        // go to a custom 404 page if the user click on a link that return a 404 response status
+        if (action === "click" && response.status && response.status === 404) {
+            barba.go("/404.html");
+        }
+
+        return false;
+    },
 });
 
 barba.hooks.after((data) => {
+    pageInit(data.next.namespace);
     initScrollbar();
     initNavBar();
+});
+
+barba.hooks.once((data) => {
     pageInit(data.next.namespace);
+    initScrollbar();
+    initNavBar();
 });
 
 function pageInit(namespace) {
+    console.log(namespace);
     switch (namespace) {
         case "home":
             homePageInit();

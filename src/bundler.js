@@ -3,8 +3,8 @@
 // import scss
 import "./styles/index.scss";
 import "./styles/about.scss";
+import "./styles/contact.scss";
 
 // import scripts
 import "./scripts/index";
 import "./scripts/scroll";
-import "./scripts/homePage";
