@@ -59,7 +59,6 @@ barba.hooks.once((data) => {
 });
 
 function pageInit(namespace) {
-    console.log(namespace);
     switch (namespace) {
         case "home":
             homePageInit();
