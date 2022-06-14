@@ -51,6 +51,7 @@
     #workGallery {
         margin: auto;
         width: 100%;
+        overflow: hidden;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         padding-bottom: 8rem;
@@ -90,7 +91,7 @@
         #titleSect {
             h1 {
                 font-size: 2.5rem;
-                padding-bottom: 2rem;
+                margin: 2rem 0;
             }
         }
         #workGallery {

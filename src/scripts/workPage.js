@@ -74,12 +74,12 @@ export function workPageInit() {
     anime({
         targets: workGallery,
         opacity: [0, 1],
-        easing: "easeOutQuad",
+        easing: "easeInOutQuad",
         duration: 700,
-        delay: 250,
+        delay: 600,
     });
 
     backBtn.addEventListener("click", () => {
-        barba.go(barba.history.previous?.url || "/index.html");
+        barba.go("/index.html");
     });
 }
