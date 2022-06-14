@@ -7,7 +7,7 @@ export function workPageInit() {
     const workGallery = document.querySelector("#workGallery");
     const projects = document.querySelectorAll(".projectImgs");
     const backBtn = document.querySelector("#workPage #backBtn");
-    const eclip = 10;
+    const eclip = 12;
 
     if (window.innerWidth > 820) {
         // display projects in 2 columns
