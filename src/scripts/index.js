@@ -22,7 +22,7 @@ const breakIntoChar = (element) => {
 const breakIntoWord = (element) => {
     element.innerHTML = element.innerText.replace(
         /\S+/g,
-        "<pre class='word'><p>$&</p></pre>"
+        "<pre class='word'><p>$&&nbsp;</p></pre>"
     );
 };
 

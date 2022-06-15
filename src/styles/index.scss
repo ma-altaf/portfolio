@@ -34,6 +34,13 @@
     will-change: contents;
 }
 
+.word {
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    will-change: contents;
+}
+
 html,
 body {
     background-color: var(--primaryColor);

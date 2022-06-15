@@ -31,7 +31,7 @@
     #titleSect {
         padding: 2rem;
         width: 100%;
-        min-height: 50vh;
+        min-height: 60vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -44,8 +44,11 @@
             font-weight: 500;
         }
         h5 {
+            display: flex;
             overflow: hidden;
             font-weight: 400;
+            max-width: 60%;
+            flex-wrap: wrap;
         }
     }
     #workGallery {
@@ -92,6 +95,10 @@
             h1 {
                 font-size: 2.5rem;
                 margin: 2rem 0;
+            }
+
+            h5 {
+                max-width: 100%;
             }
         }
         #workGallery {

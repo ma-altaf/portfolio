@@ -211,7 +211,7 @@ export function homePageInit() {
         // mobile
         setTimeout(() => {
             aboutTextAnimation.play();
-        }, 2100);
+        }, 1500);
     }
 
     const footer = document.querySelector("footer");

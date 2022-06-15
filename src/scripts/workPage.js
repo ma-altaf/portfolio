@@ -1,15 +1,19 @@
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
 import barba from "@barba/core";
+import { breakIntoWord } from ".";
 
 const NUM_COLUMN = 2;
 export function workPageInit() {
     const workGallery = document.querySelector("#workGallery");
     const projects = document.querySelectorAll(".projectImgs");
     const backBtn = document.querySelector("#workPage #backBtn");
-    const eclip = 12;
+    const titlePara = document.querySelector("#workPage #titleSect h5");
+    let eclip = 10;
 
     if (window.innerWidth > 820) {
+        // cover a greater amount of the image to accentuate the parallax effect
+        eclip = 12;
         // display projects in 2 columns
         const columns = [];
         for (let i = 0; i < NUM_COLUMN; i++) {
@@ -47,37 +51,43 @@ export function workPageInit() {
         });
     });
 
+    breakIntoWord(titlePara);
+    const t1 = anime.timeline();
     // entrance animation
-    anime({
-        targets: backBtn.querySelector("p"),
-        translateY: ["120%", 0],
-        easing: "easeOutQuad",
-        duration: 500,
-        delay: 450,
-    });
-
-    anime({
+    t1.add({
         targets: "#workPage #titleSect h1 p",
         translateY: ["120%", 0],
         easing: "easeOutQuad",
         duration: 500,
-    });
-
-    anime({
-        targets: "#workPage #titleSect h5 p",
-        translateY: ["120%", 0],
-        easing: "easeOutQuad",
-        duration: 500,
-        delay: 150,
-    });
-
-    anime({
-        targets: workGallery,
-        opacity: [0, 1],
-        easing: "easeInOutQuad",
-        duration: 700,
-        delay: 600,
-    });
+    })
+        .add(
+            {
+                targets: titlePara.querySelectorAll(".word p"),
+                translateY: ["120%", 0],
+                easing: "easeOutQuad",
+                duration: 350,
+                delay: anime.stagger(10),
+            },
+            "-=300"
+        )
+        .add(
+            {
+                targets: workGallery,
+                opacity: [0, 1],
+                easing: "easeInOutQuad",
+                duration: 750,
+            },
+            "-=100"
+        )
+        .add(
+            {
+                targets: backBtn.querySelector("p"),
+                translateY: ["120%", 0],
+                easing: "easeOutQuad",
+                duration: 500,
+            },
+            "-=700"
+        );
 
     backBtn.addEventListener("click", () => {
         barba.go("/index.html");
