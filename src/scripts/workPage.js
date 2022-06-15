@@ -72,10 +72,11 @@ export function workPageInit() {
         )
         .add(
             {
-                targets: workGallery,
+                targets: projects,
                 opacity: [0, 1],
                 easing: "easeInOutQuad",
                 duration: 750,
+                delay: anime.stagger(250),
             },
             "-=100"
         )
