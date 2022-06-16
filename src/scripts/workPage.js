@@ -49,6 +49,43 @@ export function workPageInit() {
         animationTrigger(project, {}, (ratio) => {
             projectsAnim.seek(projectsAnim.duration * ratio);
         });
+
+        project.addEventListener("mouseenter", () => {
+            anime({
+                targets: project,
+                clipPath: `polygon(${eclip * 1.1}% ${eclip * 1.1}%, 
+                    ${100 - eclip * 1.1}% ${eclip * 1.1}%,
+                 ${100 - eclip * 1.1}% ${100 - eclip * 1.1}%,
+                  ${eclip * 1.1}% ${100 - eclip * 1.1}%)`,
+                duration: 350,
+                easing: "easeInOutQuad",
+            });
+
+            anime({
+                targets: project.querySelector("h1"),
+                letterSpacing: "0.1rem",
+                duration: 350,
+                easing: "easeInOutQuad",
+            });
+        });
+        project.addEventListener("mouseleave", () => {
+            anime({
+                targets: project,
+                clipPath: `polygon(${eclip}% ${eclip}%, 
+                    ${100 - eclip}% ${eclip}%,
+                 ${100 - eclip}% ${100 - eclip}%,
+                  ${eclip}% ${100 - eclip}%)`,
+                duration: 350,
+                easing: "easeInOutQuad",
+            });
+
+            anime({
+                targets: project.querySelector("h1"),
+                letterSpacing: "0",
+                duration: 350,
+                easing: "easeInOutQuad",
+            });
+        });
     });
 
     breakIntoWord(titlePara);
@@ -65,7 +102,7 @@ export function workPageInit() {
                 targets: titlePara.querySelectorAll(".word p"),
                 translateY: ["120%", 0],
                 easing: "easeOutQuad",
-                duration: 350,
+                duration: 500,
                 delay: anime.stagger(10),
             },
             "-=300"

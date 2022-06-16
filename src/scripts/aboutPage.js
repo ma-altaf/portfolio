@@ -23,7 +23,7 @@ export function aboutPageInit() {
                 targets: titlePara.querySelectorAll(".word p"),
                 translateY: ["120%", 0],
                 easing: "easeOutQuad",
-                duration: 350,
+                duration: 500,
                 delay: anime.stagger(10),
             },
             "-=300"
@@ -35,7 +35,7 @@ export function aboutPageInit() {
                 easing: "easeOutQuad",
                 duration: 500,
             },
-            "-=100"
+            "-=300"
         )
         .add(
             {
