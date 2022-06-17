@@ -86,6 +86,11 @@ export function workPageInit() {
                 easing: "easeInOutQuad",
             });
         });
+
+        project.addEventListener("click", () => {
+            const link = project.dataset.link;
+            barba.go(link);
+        });
     });
 
     breakIntoWord(titlePara);
