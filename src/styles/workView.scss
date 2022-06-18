@@ -89,9 +89,54 @@
 
         #prevScreen {
             object-fit: cover;
-            width: 80%;
+            width: 70%;
             border: 5px solid black;
             border-radius: 1.5rem;
+        }
+    }
+
+    #descriptionSect {
+        section {
+            overflow: hidden;
+            width: 100%;
+            padding: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+
+            &:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+            .vidWrapper {
+                overflow: hidden;
+                height: 100vh;
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .vidContainer {
+                    background-size: cover;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    video {
+                        width: 80%;
+                        border-radius: 1.5rem;
+                    }
+                }
+            }
+
+            .description {
+                width: 50vw;
+                padding: 4rem;
+                display: flex;
+                flex-wrap: wrap;
+                font-size: larger;
+            }
         }
     }
 }
@@ -114,6 +159,45 @@
             #websiteBtn {
                 margin-right: 2rem;
                 padding: 2rem;
+            }
+        }
+
+        #previewSect {
+            aspect-ratio: 4/3;
+            height: auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #03989e;
+
+            #prevScreen {
+                object-fit: cover;
+                width: 80%;
+                border: 5px solid black;
+                border-radius: 1.5rem;
+            }
+        }
+
+        #descriptionSect {
+            section {
+                padding: 2rem;
+                flex-direction: column;
+                &:nth-child(even) {
+                    flex-direction: column;
+                }
+
+                .vidWrapper {
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    width: 100%;
+                }
+
+                .description {
+                    width: 100%;
+                    padding: 0;
+                    padding-top: 2rem;
+                }
             }
         }
     }

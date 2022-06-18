@@ -9,6 +9,7 @@ function workViewPageInit() {
     const websiteBtn = topSect.querySelector("#websiteBtn");
     const prevSect = document.querySelector(".workViewPage #previewSect");
     const prevContent = prevSect.querySelector("#prevScreen");
+    const descsSect = document.querySelectorAll("#descriptionSect section");
 
     breakIntoWord(summary);
 
@@ -68,7 +69,7 @@ function workViewPageInit() {
         });
     });
 
-    // preview parallax
+    // launch website button parallax
     const websiteBtnAnim = anime({
         targets: websiteBtn,
         translateY: ["50%", "-30%"],
@@ -92,6 +93,49 @@ function workViewPageInit() {
 
     animationTrigger(prevSect, {}, (ratio) => {
         previewParallaxAnim.seek(previewParallaxAnim.duration * ratio);
+    });
+
+    // description sections animations
+    descsSect.forEach((sect) => {
+        const vidWrapper = sect.querySelector(".vidWrapper");
+        const vidContainer = sect.querySelector(".vidContainer");
+        const descText = sect.querySelector(".description");
+        const vidClip = 10;
+
+        anime.set(vidWrapper, {
+            clipPath: `polygon(0% ${vidClip}%, 100% ${vidClip}%, 100% ${
+                100 - vidClip
+            }%, 0% ${100 - vidClip}%)`,
+            margin: `-${vidClip / 1.5}% 0`,
+        });
+
+        const descVidParallaxAnim = anime({
+            targets: vidContainer,
+            translateY: ["-30%", "30%"],
+            duration: 10,
+            easing: "linear",
+            autoplay: false,
+        });
+
+        animationTrigger(sect, {}, (ratio) => {
+            descVidParallaxAnim.seek(descVidParallaxAnim.duration * ratio);
+        });
+
+        breakIntoWord(descText);
+
+        anime.set(descText.querySelectorAll(".word p"), {
+            translateY: "120%",
+        });
+
+        animationTrigger(descText, 0.5, () => {
+            anime({
+                targets: descText.querySelectorAll(".word p"),
+                translateY: 0,
+                easing: "easeOutQuad",
+                duration: 500,
+                delay: anime.stagger(10),
+            });
+        });
     });
 
     backBtn.addEventListener("click", () => {
