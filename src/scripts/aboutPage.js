@@ -57,6 +57,6 @@ export function aboutPageInit() {
         );
 
     backBtn.addEventListener("click", () => {
-        barba.go("/index.html");
+        history.back();
     });
 }

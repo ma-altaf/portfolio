@@ -1,7 +1,7 @@
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
 import barba from "@barba/core";
-import { breakIntoWord } from ".";
+import { breakIntoWord } from "./index";
 
 const NUM_COLUMN = 2;
 export function workPageInit() {
@@ -133,6 +133,6 @@ export function workPageInit() {
         );
 
     backBtn.addEventListener("click", () => {
-        barba.go("/index.html");
+        history.back();
     });
 }

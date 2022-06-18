@@ -25,7 +25,7 @@ export function contactPageInit() {
     });
 
     backBtn.addEventListener("click", () => {
-        barba.go("/index.html");
+        history.back();
     });
 
     contactLinks.forEach((el, i) => {

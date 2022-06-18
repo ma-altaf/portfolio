@@ -6,6 +6,7 @@ import { initNavBar } from "./navBar";
 import { initScrollbar } from "./scroll";
 import { workPageInit } from "./workPage";
 import barba from "@barba/core";
+import { workViewPageInit } from "./workViewPage";
 
 console.log(
     "%cI designed and coded the website, so I probably still remember how it worked 😅.",
@@ -59,6 +60,8 @@ barba.hooks.once((data) => {
 });
 
 function pageInit(namespace) {
+    namespace = namespace.startsWith("works/") ? "works/:wid" : namespace;
+
     switch (namespace) {
         case "home":
             homePageInit();
@@ -71,6 +74,9 @@ function pageInit(namespace) {
             break;
         case "about":
             aboutPageInit();
+            break;
+        case "works/:wid":
+            workViewPageInit();
             break;
 
         default:
