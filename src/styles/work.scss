@@ -1,6 +1,7 @@
 #workPage {
     overflow: hidden;
     #backBtn {
+        z-index: 10;
         overflow: hidden;
         cursor: pointer;
         position: absolute;
