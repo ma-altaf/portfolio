@@ -69,6 +69,19 @@ function workViewPageInit() {
     });
 
     // preview parallax
+    const websiteBtnAnim = anime({
+        targets: websiteBtn,
+        translateY: ["50%", "-30%"],
+        duration: 10,
+        easing: "linear",
+        autoplay: false,
+    });
+
+    animationTrigger(topSect, { start: [0, 0] }, (ratio) => {
+        websiteBtnAnim.seek(websiteBtnAnim.duration * ratio);
+    });
+
+    // preview parallax
     const previewParallaxAnim = anime({
         targets: prevContent,
         translateY: ["-30%", "30%"],
