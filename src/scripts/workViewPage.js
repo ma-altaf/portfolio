@@ -138,6 +138,42 @@ function workViewPageInit() {
         });
     });
 
+    const footer = document.querySelector(".workViewPage footer");
+    const nextProjectImg = footer.querySelector("img");
+
+    anime.set(nextProjectImg, {
+        translateY: "-30%",
+        scaleX: 1.2,
+        scaleY: 1.2,
+    });
+
+    const nextProjectImgAnim = anime({
+        targets: nextProjectImg,
+        translateY: 0,
+        duration: 10,
+        easing: "linear",
+        autoplay: false,
+    });
+
+    nextProjectImg.addEventListener("mouseenter", () => {
+        anime({
+            targets: nextProjectImg,
+            scaleX: 1.3,
+            scaleY: 1.3,
+        });
+    });
+    nextProjectImg.addEventListener("mouseleave", () => {
+        anime({
+            targets: nextProjectImg,
+            scaleX: 1.2,
+            scaleY: 1.2,
+        });
+    });
+
+    animationTrigger(footer, { end: [0, 0] }, (ratio) => {
+        nextProjectImgAnim.seek(nextProjectImgAnim.duration * ratio);
+    });
+
     backBtn.addEventListener("click", () => {
         history.back();
     });
