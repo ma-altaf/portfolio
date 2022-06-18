@@ -58,8 +58,8 @@ const animationTrigger = (element, threshold = 1, callback) => {
 function ratioCalculator(
     element,
     {
-        start: [elStartOffset = 0, winStartOffset = 1] = [0, 1],
-        end: [elEndOffset = 1, winEndOffset = 0] = [1, 0],
+        start: [elStartOffset, winStartOffset] = [0, 1],
+        end: [elEndOffset, winEndOffset] = [1, 0],
     },
     listner
 ) {
@@ -68,15 +68,15 @@ function ratioCalculator(
 
     const elStartMarker = elStartOffset * elHeight;
     const elEndMarker = elEndOffset * elHeight;
-    const elMiddle = elEndMarker - elStartMarker / 2;
-    const winMiddle =
-        winHeight * winEndOffset +
-        (winHeight * (winStartOffset - winEndOffset)) / 2;
+    const elMiddle = (elEndMarker + elStartMarker) / 2;
+    const winMiddle = (winHeight * (winEndOffset + winStartOffset)) / 2;
     const maxRatio =
-        elMiddle + (winHeight * (winStartOffset - winEndOffset)) / 2;
+        (elEndMarker -
+            elStartMarker +
+            winHeight * (winStartOffset - winEndOffset)) /
+        2;
 
-    const ratio =
-        0.5 - 0.5 * ((top + elStartMarker + elMiddle - winMiddle) / maxRatio);
+    const ratio = 0.5 - (0.5 * (top + elMiddle - winMiddle)) / maxRatio;
 
     // element out of view remove listner
     if (bottom <= 0) {

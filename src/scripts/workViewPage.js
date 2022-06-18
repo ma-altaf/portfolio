@@ -6,7 +6,9 @@ import { breakIntoWord } from "./index";
 function workViewPageInit() {
     const topSect = document.querySelector(".workViewPage #topSect");
     const summary = topSect.querySelector("#summary");
-    const websiteBtn = topSect.querySelector("#website");
+    const websiteBtn = topSect.querySelector("#websiteBtn");
+    const prevSect = document.querySelector(".workViewPage #previewSect");
+    const prevContent = prevSect.querySelector("#prevScreen");
 
     breakIntoWord(summary);
 
@@ -46,13 +48,38 @@ function workViewPageInit() {
             },
             "-=500"
         )
-
         .add({
             targets: backBtn.querySelector("p"),
             translateY: ["120%", 0],
             easing: "easeOutQuad",
             duration: 500,
         });
+
+    websiteBtn.addEventListener("mouseenter", () => {
+        anime({
+            targets: websiteBtn,
+            clipPath: "circle(45% at 50% 50%)",
+        });
+    });
+    websiteBtn.addEventListener("mouseleave", () => {
+        anime({
+            targets: websiteBtn,
+            clipPath: "circle(50% at 50% 50%)",
+        });
+    });
+
+    // preview parallax
+    const previewParallaxAnim = anime({
+        targets: prevContent,
+        translateY: ["-30%", "30%"],
+        duration: 10,
+        easing: "linear",
+        autoplay: false,
+    });
+
+    animationTrigger(prevSect, {}, (ratio) => {
+        previewParallaxAnim.seek(previewParallaxAnim.duration * ratio);
+    });
 
     backBtn.addEventListener("click", () => {
         history.back();
