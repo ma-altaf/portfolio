@@ -30,6 +30,12 @@ function workViewPageInit() {
             },
             "-=300"
         )
+        .add({
+            targets: topSect.querySelector("#gitHubLink"),
+            opacity: [0, 1],
+            easing: "easeOutQuad",
+            duration: 500,
+        })
         .add(
             {
                 targets: websiteBtn,
@@ -47,7 +53,7 @@ function workViewPageInit() {
                     });
                 },
             },
-            "-=500"
+            "-=1000"
         )
         .add({
             targets: backBtn.querySelector("p"),
@@ -159,7 +165,7 @@ function workViewPageInit() {
     nextProjectImgWrapper.addEventListener("mouseenter", () => {
         anime({
             targets: nextProjectImgWrapper,
-            clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
+            clipPath: "polygon(3% 3%, 97% 3%, 97% 97%, 3% 97%)",
         });
     });
     nextProjectImgWrapper.addEventListener("mouseleave", () => {

@@ -57,6 +57,12 @@
             flex-wrap: wrap;
         }
 
+        #gitHubLink {
+            color: var(--secondaryColor);
+            padding-top: 2rem;
+            width: 60%;
+        }
+
         #websiteBtn {
             z-index: 10;
             text-decoration: none;

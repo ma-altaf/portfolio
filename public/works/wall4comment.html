@@ -34,11 +34,20 @@
             <section id="topSect">
                 <h1><p>Wall 4 Comment</p></h1>
                 <div id="summary">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-                    ipsam ullam odio dignissimos repellat quos harum maiores
-                    nostrum, illum voluptatibus aperiam tempore eos id modi?
-                    Optio ea velit voluptate nam.
+                    Developed a website to send & receive truthful constructive
+                    comments. Developed using the front-end library ReactJs and
+                    Framer Motion for animations, Firebase builds are used to
+                    handle the back-end (Firestore database, Storage) and the
+                    project is hosted using firebase hosting. (NOTE: the
+                    recordings do not show some colors/shades making the UI look
+                    less usable, sorry)
                 </div>
+                <a
+                    href="https://github.com/ma-altaf/wall4comment"
+                    target="_blank"
+                    id="gitHubLink"
+                    >Check on GitHub</a
+                >
                 <a
                     href="https://wall4comment.web.app/"
                     target="_blank"
@@ -52,7 +61,7 @@
             <div id="previewSect" style="background-color: #2563eb">
                 <video
                     id="prevScreen"
-                    src="../assets/SCH_assets/SCH_prev.mp4"
+                    src="../assets/W4C_assets/W4C_prev.mp4"
                     autoplay
                     loop
                     muted
@@ -60,14 +69,17 @@
             </div>
 
             <section id="descriptionSect">
+                <!-- sign in -->
                 <section>
                     <div class="vidWrapper">
                         <div
                             class="vidContainer"
-                            style="background-image: url(../assets/vidBg.jpg)"
+                            style="
+                                background-image: url(../assets/W4C_assets/W4C_bg.jpg);
+                            "
                         >
                             <video
-                                src="../assets/SCH_assets/SCH_prev.mp4"
+                                src="../assets/W4C_assets/W4C_signin.mp4"
                                 autoplay
                                 loop
                                 muted
@@ -75,10 +87,89 @@
                         </div>
                     </div>
                     <div class="description">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Laudantium consectetur ullam error nobis iusto
-                        dolorum, at pariatur unde vitae quisquam porro obcaecati
-                        amet saepe a inventore quaerat. Ipsa, illum nulla.
+                        Users create an account / log in with an existing
+                        account. When a new account is created, an email is sent
+                        to the email address entered by the user to authenticate
+                        the email address for the account (using Firestore
+                        security rules the user will not be able to do anything
+                        with their account unless they authenticate their email
+                        address).
+                    </div>
+                </section>
+
+                <!-- creating new post -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(../assets/W4C_assets/W4C_bg1.jpg);
+                            "
+                        >
+                            <video
+                                src="../assets/W4C_assets/W4C_newpost.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Users create a new post with a title (required), a
+                        description and an image/s if they want to. They can
+                        then click on the share icon to copy the link to the
+                        post in order to give access to it and get anonymous
+                        comments.
+                    </div>
+                </section>
+
+                <!-- commenting on a post -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(../assets/W4C_assets/W4C_bg2.jpg);
+                            "
+                        >
+                            <video
+                                src="../assets/W4C_assets/W4C_commenting.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Using the link that the user copied as seen above, other
+                        people (does not need account) can read more about the
+                        post and respond with an anonymous comment.
+                    </div>
+                </section>
+
+                <!-- lazy loading posts / comments -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(../assets/W4C_assets/W4C_bg3.jpg);
+                            "
+                        >
+                            <video
+                                src="../assets/W4C_assets/W4C_lazyloading.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Using intersection observer on the “ads banner” previous
+                        post as well as previous comments are lazy loaded. It
+                        creates a sort of pagination where only 6 comments/post
+                        is loaded every time the intersection observer callback
+                        triggers.
                     </div>
                 </section>
             </section>
