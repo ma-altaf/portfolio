@@ -48,6 +48,12 @@
             font-size: 4rem;
             margin-bottom: 4rem;
             font-weight: 500;
+            width: 60%;
+
+            sup {
+                font-size: 0.7rem;
+                font-weight: 700;
+            }
         }
         #summary {
             display: flex;
@@ -203,6 +209,7 @@
             h1 {
                 font-size: 2.5rem;
                 margin-bottom: 2rem;
+                width: 100%;
             }
 
             #summary {
