@@ -56,24 +56,116 @@
                     src="../assets/SCH_prev.mp4"
                     autoplay
                     loop
+                    muted
                 />
             </div>
 
             <section id="descriptionSect">
+                <!-- PreloadJs -->
                 <section>
                     <div class="vidWrapper">
                         <div
                             class="vidContainer"
-                            style="background-image: url(../assets/vidBg.jpg)"
+                            style="background-image: url(../assets/SCH_bg.jpg)"
                         >
-                            <video src="../assets/SCH_prev.mp4" autoplay loop />
+                            <video
+                                src="../assets/SCH_preload.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
                         </div>
                     </div>
                     <div class="description">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Laudantium consectetur ullam error nobis iusto
-                        dolorum, at pariatur unde vitae quisquam porro obcaecati
-                        amet saepe a inventore quaerat. Ipsa, illum nulla.
+                        During the cover page the URLs for the images on
+                        Imagekit.io is received and the first 3 images under
+                        previous works are downloaded. Using PreloadJs the
+                        progress of downloading the images is tracked and the
+                        progress bar is updated accordingly. Once the 3 images
+                        are downloaded the cover is animated out.
+                    </div>
+                </section>
+
+                <!-- image lazy loading -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="background-image: url(../assets/SCH_bg1.jpg)"
+                        >
+                            <video
+                                src="../assets/SCH_lazyload.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Since there are multiple images to be displayed, I
+                        decided to use Imagekit.io to reduce the file size of
+                        the images as well as adapting it to the screen size of
+                        the user, to further reduce the file size if possible.
+                        Moreover, I used lazy loading to only download images
+                        that are about to be viewed. The lazy loading feature
+                        can be seen by looking at the size of the scroll thumb
+                        reducing in size every 2 images, as 2 more images are
+                        being added to the DOM.
+                    </div>
+                </section>
+
+                <!-- image preview -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="background-image: url(../assets/SCH_bg2.jpg)"
+                        >
+                            <video
+                                src="../assets/SCH_imgPrev.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        The image can be viewed and zoomed into as shown in the
+                        video. Since there is no other interaction, the user can
+                        leave that page either by clicking anywhere on the
+                        screen, or by clicking the back/previous button
+                        especially on mobile phone. That “page” is not actually
+                        a different one (no visual change to the URL), I used
+                        push state to add an entry into the browser's session
+                        history stack so that the browser's previous button
+                        behaviour would only close that “page” instead of the
+                        leaving the webpage.
+                    </div>
+                </section>
+
+                <!-- enquire page -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="background-image: url(../assets/SCH_bg3.jpg)"
+                        >
+                            <video
+                                src="../assets/SCH_enuire.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        The enquire page uses the same push state logic as the
+                        image viewing page. The links have a micro interaction
+                        to help the user know that they are interactive. I also
+                        added the contact email as a text so that the user can
+                        copy the email in case, they have issues with the
+                        “mailto:” functionality or they want to use a different
+                        emailing software.
                     </div>
                 </section>
             </section>

@@ -140,6 +140,7 @@ function workViewPageInit() {
 
     const footer = document.querySelector(".workViewPage footer");
     const nextProjectImg = footer.querySelector("img");
+    const nextProjectImgWrapper = footer.querySelector("span");
 
     anime.set(nextProjectImg, {
         translateY: "-30%",
@@ -155,18 +156,16 @@ function workViewPageInit() {
         autoplay: false,
     });
 
-    nextProjectImg.addEventListener("mouseenter", () => {
+    nextProjectImgWrapper.addEventListener("mouseenter", () => {
         anime({
-            targets: nextProjectImg,
-            scaleX: 1.3,
-            scaleY: 1.3,
+            targets: nextProjectImgWrapper,
+            clipPath: "polygon(5% 5%, 95% 5%, 95% 95%, 5% 95%)",
         });
     });
-    nextProjectImg.addEventListener("mouseleave", () => {
+    nextProjectImgWrapper.addEventListener("mouseleave", () => {
         anime({
-            targets: nextProjectImg,
-            scaleX: 1.2,
-            scaleY: 1.2,
+            targets: nextProjectImgWrapper,
+            clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         });
     });
 
