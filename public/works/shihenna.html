@@ -37,11 +37,21 @@
                 </h1>
 
                 <div id="summary">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-                    ipsam ullam odio dignissimos repellat quos harum maiores
-                    nostrum, illum voluptatibus aperiam tempore eos id modi?
-                    Optio ea velit voluptate nam.
+                    Developed a website for mehndi artist, Shifa. This was my
+                    first web project and I bite off more than I could chew,
+                    implementing a booking system that would be more of pain
+                    than a solution. Moreover, I used firebase Web version 8
+                    (first time without following a project tutorial) to
+                    implement the backend and it will be deprecated. Developed
+                    using HTML, CSS(SCSS) and JavaScript, with GSAP library for
+                    animation and firebase for the backend.
                 </div>
+                <a
+                    href="https://github.com/ma-altaf/Shihenna-project"
+                    target="_blank"
+                    id="gitHubLink"
+                    >Check on GitHub</a
+                >
                 <a
                     href="https://shihenna.web.app/"
                     target="_blank"
@@ -55,7 +65,7 @@
             <div id="previewSect" style="background-color: #e29578">
                 <video
                     id="prevScreen"
-                    src="../assets/SCH_assets/SCH_prev.mp4"
+                    src="../assets/SHI_assets/SHI_prev.mp4"
                     autoplay
                     loop
                     muted
@@ -63,14 +73,17 @@
             </div>
 
             <section id="descriptionSect">
+                <!-- gallery webpage go through -->
                 <section>
                     <div class="vidWrapper">
                         <div
                             class="vidContainer"
-                            style="background-image: url(../assets/vidBg.jpg)"
+                            style="
+                                background-image: url(../assets/SHI_assets/SHI_bg.jpg);
+                            "
                         >
                             <video
-                                src="../assets/SCH_assets/SCH_prev.mp4"
+                                src="../assets/SHI_assets/SHI_gallery.mp4"
                                 autoplay
                                 loop
                                 muted
@@ -78,10 +91,97 @@
                         </div>
                     </div>
                     <div class="description">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Laudantium consectetur ullam error nobis iusto
-                        dolorum, at pariatur unde vitae quisquam porro obcaecati
-                        amet saepe a inventore quaerat. Ipsa, illum nulla.
+                        The gallery is divided in 3 categories and within each
+                        category the images are paginated (only 4 images are
+                        loaded at a time, at the bottom the user can click on
+                        “next” to load 4 more images).
+                    </div>
+                </section>
+
+                <!-- placing an appointment -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(../assets/SHI_assets/SHI_bg1.jpg);
+                            "
+                        >
+                            <video
+                                src="../assets/SHI_assets/SHI_booking.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Users can place an appointment on the website itself.
+                        Only phone numbers that follow the Mauritian phone
+                        number pattern is allowed, moreover when selecting the
+                        time if the time slot is black then it is already
+                        booked/cannot be booked. If a user already has an
+                        appointment, they will not be able to place another one
+                        until either their previous appointment is done, or they
+                        wait for 3 hours before opting out of the appointment,
+                        this was setup as such to block spamming appointments.
+                    </div>
+                </section>
+
+                <!-- admin appointments -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(../assets/SHI_assets/SHI_bg2.jpg);
+                            "
+                        >
+                            <video
+                                src="../assets/SHI_assets/SHI_appointments.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Using the appointment website, the owner can send a
+                        message (through WhatsApp/phone) to customers that have
+                        placed an appointment. They can also check the
+                        appointments that have been placed through the calendar/
+                        timetable, Since the system automatically book the time
+                        even if the owner has not sent a message to the
+                        customer, there is a field to state that they have not
+                        been sent a message yet. The owner can also book an
+                        appointment by clicking on a time slot that is still
+                        available.
+                    </div>
+                </section>
+
+                <!-- adding new posting -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(../assets/SHI_assets/SHI_bg3.jpg);
+                            "
+                        >
+                            <video
+                                src="../assets/SHI_assets/SHI_add.mp4"
+                                autoplay
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Using the admin website, postings can be added or
+                        edited. The admin website uses Google sign-in and using
+                        Firestore security rules only the google account for the
+                        owner is allowed to make changes (add, delete and
+                        update).
                     </div>
                 </section>
             </section>
