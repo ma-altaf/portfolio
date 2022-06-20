@@ -7,6 +7,7 @@ import { initScrollbar } from "./scroll";
 import { workPageInit } from "./workPage";
 import barba from "@barba/core";
 import { workViewPageInit } from "./workViewPage";
+import anime from "animejs";
 
 console.log(
     "%cI designed and coded the website, so I probably still remember how it worked 😅.",
@@ -27,8 +28,68 @@ const breakIntoWord = (element) => {
     );
 };
 
+const curtain = document.querySelector("#curtain");
+const curtainText = curtain.querySelector("#namespace");
+
 barba.init({
+    debug: true,
     transitions: [
+        {
+            name: "default-transition",
+            async leave(data) {
+                const done = this.async();
+                const namespace = data.next.namespace;
+                curtainText.innerText = namespace.substring(
+                    namespace.indexOf("/") + 1
+                );
+                const t1 = anime.timeline();
+                t1.add({
+                    targets: curtain,
+                    clipPath: [
+                        "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                        "polygon(0% 0%, 100% 0%, 100% 125%, 0% 100%)",
+                    ],
+                    transformOrigin: "center bottom 0",
+                    duration: 750,
+                    easing: "easeInOutQuad",
+                }).add(
+                    {
+                        targets: curtainText,
+                        opacity: [0, 1],
+                        translateY: ["-200%", 0],
+                        duration: 350,
+                        easing: "easeOutQuad",
+                        complete: () => done(),
+                    },
+                    "-=150"
+                );
+            },
+            async enter() {
+                const done = this.async();
+                const t1 = anime.timeline();
+
+                t1.add({
+                    targets: curtainText,
+                    opacity: [1, 0],
+                    translateY: [0, "200%"],
+                    duration: 350,
+                    easing: "easeOutQuad",
+                }).add(
+                    {
+                        begin: () => done(),
+                        targets: curtain,
+                        clipPath: [
+                            "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+                            "polygon(0% 100%, 100% 125%, 100% 100%, 0% 100%)",
+                        ],
+                        transformOrigin: "center top 0",
+                        duration: 750,
+                        easing: "easeOutQuad",
+                    },
+                    "-=150"
+                );
+            },
+        },
         {
             name: "welcome",
             once: () => coverAnimation(),
