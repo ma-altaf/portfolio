@@ -62,6 +62,21 @@ function workViewPageInit() {
             duration: 500,
         });
 
+    const videos = document.querySelectorAll("video");
+
+    videos.forEach((video) => {
+        new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        video.play();
+                    }
+                });
+            },
+            { threshold: 0 }
+        ).observe(video);
+    });
+
     websiteBtn.addEventListener("mouseenter", () => {
         anime({
             targets: websiteBtn,
