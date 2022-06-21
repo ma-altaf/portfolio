@@ -13,6 +13,11 @@ export function initNavBar() {
         clipPath: "circle(0% at 50% 50%)",
     });
 
+    anime.set(floatingNav.querySelectorAll("div .menuBars"), {
+        scaleX: 1,
+    });
+
+    // making the navbar appear/disappear based on the distance srolled
     scrollbar.addListener((event) => {
         if (isFloatingNavVisible) {
             if (event.offset.y > NAV_TRIGGER) {
@@ -27,6 +32,7 @@ export function initNavBar() {
         }
     });
 
+    // navbar switch/ button appear/disappear animation
     function toggleFloatingNav(isFloatingNavVisible) {
         floatingNav.style.pointerEvents = isFloatingNavVisible
             ? "none"
@@ -51,6 +57,7 @@ export function initNavBar() {
         });
     }
 
+    // floating nav switch hover animation
     floatingNav.addEventListener("mouseenter", () => {
         anime({
             targets: floatingNav,
@@ -68,18 +75,12 @@ export function initNavBar() {
         translateX: "50%",
     });
 
-    floatingNavContent.querySelectorAll("ul li").forEach((el) => {
-        const link = el.querySelector("a");
-        link.onclick = () => {
-            toggleNavContent();
-            toggleFloatingNav(false);
-        };
-    });
-
+    // opening/closing floating nav
     floatingNav.addEventListener("click", () => {
         toggleNavContent();
     });
 
+    // opening/closing nav animations
     function toggleNavContent() {
         anime({
             targets: floatingNav.querySelectorAll("div .menuBars"),
@@ -104,7 +105,7 @@ export function initNavBar() {
 
         anime({
             targets: floatingNavContent.querySelectorAll("ul li"),
-            translateX: isNavOpen ? "50%" : ["50%", 0],
+            translateX: isNavOpen ? [0, "50%"] : ["50%", 0],
             easing: "easeOutQuart",
             duration: 700,
         });
@@ -112,4 +113,13 @@ export function initNavBar() {
         isNavOpen = !isNavOpen;
         scrollbar.updatePluginOptions("pause", { pause: isNavOpen });
     }
+
+    // floating nav links onclick
+    floatingNavContent.querySelectorAll("ul li").forEach((el) => {
+        const link = el.querySelector("a");
+        link.onclick = () => {
+            toggleNavContent();
+            toggleFloatingNav(false);
+        };
+    });
 }
