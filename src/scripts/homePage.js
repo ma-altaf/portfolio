@@ -173,16 +173,6 @@ export function homePageInit() {
         projectLinks.forEach((link) => {
             const linkImg = link.querySelector("img");
 
-            link.addEventListener("mouseleave", () => {
-                anime({
-                    targets: linkImg,
-                    clipPath: "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)",
-                    opacity: 0,
-                    easing: "easeOutSine",
-                    duration: 300,
-                });
-            });
-
             link.addEventListener("mouseenter", ({ offsetX, offsetY }) => {
                 anime.set(linkImg, {
                     top: offsetY,
@@ -193,7 +183,7 @@ export function homePageInit() {
                     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
                     opacity: 1,
                     duration: 300,
-                    easing: "easeOutSine",
+                    easing: "easeInOutSine",
                 });
             });
 
@@ -204,6 +194,16 @@ export function homePageInit() {
                     left: offsetX,
                     easing: "easeOutQuad",
                     duration: 100,
+                });
+            });
+
+            link.addEventListener("mouseleave", () => {
+                anime({
+                    targets: linkImg,
+                    clipPath: "polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)",
+                    opacity: 0,
+                    easing: "easeInOutSine",
+                    duration: 300,
                 });
             });
         });
