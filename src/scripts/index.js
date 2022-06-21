@@ -57,7 +57,13 @@ barba.init({
                         translateY: ["-200%", 0],
                         duration: 650,
                         easing: "easeInOutQuad",
-                        complete: () => done(),
+                        complete: () => {
+                            anime.set(curtain, {
+                                clipPath:
+                                    "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                            });
+                            done();
+                        },
                     },
                     "-=650"
                 );
@@ -82,6 +88,11 @@ barba.init({
                         transformOrigin: "center top 0",
                         duration: 750,
                         easing: "easeOutQuad",
+                        complete: () =>
+                            anime.set(curtain, {
+                                clipPath:
+                                    "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                            }),
                     },
                     "-=550"
                 );
