@@ -17,6 +17,10 @@ export function initNavBar() {
         scaleX: 1,
     });
 
+    anime.set(floatingNavContent, {
+        clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+    });
+
     // making the navbar appear/disappear based on the distance srolled
     scrollbar.addListener((event) => {
         if (isFloatingNavVisible) {
@@ -113,13 +117,4 @@ export function initNavBar() {
         isNavOpen = !isNavOpen;
         scrollbar.updatePluginOptions("pause", { pause: isNavOpen });
     }
-
-    // floating nav links onclick
-    floatingNavContent.querySelectorAll("ul li").forEach((el) => {
-        const link = el.querySelector("a");
-        link.onclick = () => {
-            toggleNavContent();
-            toggleFloatingNav(false);
-        };
-    });
 }
