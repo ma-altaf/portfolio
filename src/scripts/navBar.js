@@ -21,17 +21,21 @@ export function initNavBar() {
         clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
     });
 
+    anime.set(floatingNavContent.querySelectorAll("ul li"), {
+        translateX: "50%",
+    });
+
     // making the navbar appear/disappear based on the distance srolled
     scrollbar.addListener((event) => {
         if (isFloatingNavVisible) {
             if (event.offset.y > NAV_TRIGGER) {
-                isFloatingNavVisible = false;
                 toggleFloatingNav(isFloatingNavVisible);
+                isFloatingNavVisible = false;
             }
         } else {
             if (event.offset.y < NAV_TRIGGER) {
-                isFloatingNavVisible = true;
                 toggleFloatingNav(isFloatingNavVisible);
+                isFloatingNavVisible = true;
             }
         }
     });
@@ -39,24 +43,24 @@ export function initNavBar() {
     // navbar switch/ button appear/disappear animation
     function toggleFloatingNav(isFloatingNavVisible) {
         floatingNav.style.pointerEvents = isFloatingNavVisible
-            ? "none"
-            : "auto";
+            ? "auto"
+            : "none";
 
         anime({
             targets: floatingNav,
             clipPath: isFloatingNavVisible
-                ? "circle(0% at 50% 50%)"
-                : "circle(45% at 50% 50%)",
+                ? "circle(45% at 50% 50%)"
+                : "circle(0% at 50% 50%)",
             duration: 700,
-            easing: isFloatingNavVisible ? "easeInOutQuart" : "easeOutQuart",
-            delay: isFloatingNavVisible ? 100 : 0,
+            easing: isFloatingNavVisible ? "easeOutQuart" : "easeInOutQuart",
+            delay: isFloatingNavVisible ? 0 : 100,
         });
 
         anime({
             targets: floatingNav.querySelectorAll("div .menuBars"),
-            translateY: isFloatingNavVisible ? "-1rem" : ["3rem", 0],
+            translateY: isFloatingNavVisible ? ["3rem", 0] : "-1rem",
             duration: 700,
-            easing: isFloatingNavVisible ? "easeInOutQuart" : "easeOutQuart",
+            easing: isFloatingNavVisible ? "easeOutQuart" : "easeInOutQuart",
             delay: anime.stagger(100),
         });
     }
@@ -75,17 +79,8 @@ export function initNavBar() {
         });
     });
 
-    anime.set(floatingNavContent.querySelectorAll("ul li"), {
-        translateX: "50%",
-    });
-
     // opening/closing floating nav
     floatingNav.addEventListener("click", () => {
-        toggleNavContent();
-    });
-
-    // opening/closing nav animations
-    function toggleNavContent() {
         anime({
             targets: floatingNav.querySelectorAll("div .menuBars"),
             scaleX: isNavOpen ? 1 : anime.stagger([1, 0.1]),
@@ -116,5 +111,5 @@ export function initNavBar() {
 
         isNavOpen = !isNavOpen;
         scrollbar.updatePluginOptions("pause", { pause: isNavOpen });
-    }
+    });
 }
