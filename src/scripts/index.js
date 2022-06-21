@@ -56,7 +56,7 @@ barba.init({
                         targets: curtainText,
                         translateY: ["-200%", 0],
                         duration: 650,
-                        easing: "easeOutQuad",
+                        easing: "easeInOutQuad",
                         complete: () => done(),
                     },
                     "-=650"
@@ -70,7 +70,7 @@ barba.init({
                     targets: curtainText,
                     translateY: [0, "200%"],
                     duration: 650,
-                    easing: "easeOutQuad",
+                    easing: "easeInOutQuad",
                 }).add(
                     {
                         begin: () => done(),

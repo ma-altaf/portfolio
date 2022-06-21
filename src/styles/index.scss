@@ -4,7 +4,7 @@
 :root {
     --primaryColor: #f0f0f0;
     --secondaryColor: #151515;
-    --accent-color: #ffeaa7;
+    --accentColor: #ffeaa7;
     --name-box-w: 30vw;
 }
 
@@ -14,13 +14,13 @@
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
     ::selection {
-        color: var(--accent-color);
+        color: var(--accentColor);
         background: var(--secondaryColor);
     }
 }
 
 .scrollbar-thumb {
-    background: var(--accent-color) !important;
+    background: var(--accentColor) !important;
 }
 
 .scrollbar-track {
@@ -89,7 +89,7 @@ main {
             border-radius: 2px;
             height: 0.1rem;
             width: 1.5rem;
-            background-color: var(--accent-color);
+            background-color: var(--accentColor);
         }
         .menuBars:nth-child(2) {
             margin: 0.3rem 0;
@@ -153,7 +153,7 @@ main {
             border-radius: 1.5px;
             z-index: -1;
             width: 100%;
-            background-color: var(--accent-color);
+            background-color: var(--accentColor);
             transform: scaleX(0);
             transition: transform 0.3s ease-in-out;
             transform-origin: right;
@@ -192,7 +192,7 @@ main {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: var(--accent-color);
+            color: var(--accentColor);
             text-transform: uppercase;
             font-size: calc(var(--name-box-w) / 7);
             font-weight: 100;
@@ -272,7 +272,7 @@ main {
                     align-items: center;
                     transform: translateX(-50%);
                     background-color: var(--secondaryColor);
-                    color: var(--accent-color);
+                    color: var(--accentColor);
                     padding: 1rem;
                     clip-path: circle(0% at 50% 50%);
                     position: absolute;
@@ -432,7 +432,7 @@ main {
                     text-decoration: none;
                     width: fit-content;
                     border-radius: 4rem;
-                    background-color: var(--accent-color);
+                    background-color: var(--accentColor);
                     display: flex;
                     flex-direction: column;
                     margin-top: 3rem;
@@ -465,7 +465,7 @@ main {
             right: 0;
 
             b {
-                color: var(--accent-color);
+                color: var(--accentColor);
                 font-weight: 300;
             }
         }
