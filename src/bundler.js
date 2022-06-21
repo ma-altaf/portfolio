@@ -6,7 +6,6 @@ import "./styles/about.scss";
 import "./styles/contact.scss";
 import "./styles/work.scss";
 import "./styles/workView.scss";
-import "./styles/errorPage.scss";
 
 // import scripts
 import "./scripts/index";

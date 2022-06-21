@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: [path.resolve(__dirname, "src/bundler.js")],
     output: {
         path: path.resolve(__dirname, "public"),
