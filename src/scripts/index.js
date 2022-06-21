@@ -54,13 +54,12 @@ barba.init({
                 }).add(
                     {
                         targets: curtainText,
-                        opacity: [0, 1],
                         translateY: ["-200%", 0],
-                        duration: 350,
+                        duration: 650,
                         easing: "easeOutQuad",
                         complete: () => done(),
                     },
-                    "-=150"
+                    "-=650"
                 );
             },
             async enter() {
@@ -69,9 +68,8 @@ barba.init({
 
                 t1.add({
                     targets: curtainText,
-                    opacity: [1, 0],
                     translateY: [0, "200%"],
-                    duration: 350,
+                    duration: 650,
                     easing: "easeOutQuad",
                 }).add(
                     {
@@ -85,7 +83,7 @@ barba.init({
                         duration: 750,
                         easing: "easeOutQuad",
                     },
-                    "-=150"
+                    "-=550"
                 );
             },
         },
