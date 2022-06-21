@@ -111,7 +111,7 @@ main {
     align-items: center;
     #namespace {
         text-transform: uppercase;
-        font-size: 2rem;
+        font-size: 4rem;
         color: var(--primaryColor);
     }
 }
@@ -487,6 +487,12 @@ main {
         li,
         a {
             font-size: 3rem;
+        }
+    }
+
+    #curtain {
+        #namespace {
+            font-size: 2rem;
         }
     }
 
