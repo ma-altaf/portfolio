@@ -130,7 +130,7 @@ barba.hooks.once((data) => {
 
 function pageInit(namespace) {
     namespace = namespace.startsWith("works/") ? "works/:wid" : namespace;
-
+    document.querySelector("body").style.display = "block";
     switch (namespace) {
         case "home":
             homePageInit();
