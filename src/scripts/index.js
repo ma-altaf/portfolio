@@ -32,7 +32,6 @@ const curtain = document.querySelector("#curtain");
 const curtainText = curtain.querySelector("#namespace");
 
 barba.init({
-    debug: true,
     transitions: [
         {
             name: "default-transition",
