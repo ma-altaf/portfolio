@@ -32,6 +32,7 @@ const curtain = document.querySelector("#curtain");
 const curtainText = curtain.querySelector("#namespace");
 
 barba.init({
+    debug: true,
     transitions: [
         {
             name: "default-transition",
@@ -51,31 +52,46 @@ barba.init({
                     transformOrigin: "center bottom 0",
                     duration: 750,
                     easing: "easeInOutQuad",
-                }).add(
-                    {
-                        targets: curtainText,
-                        translateY: ["-200%", 0],
-                        duration: 650,
-                        easing: "easeInOutQuad",
-                        complete: () => {
-                            anime.set(curtain, {
-                                clipPath:
-                                    "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-                            });
-                            done();
+                })
+                    .add(
+                        {
+                            targets: "main",
+                            duration: 750,
+                            easing: "easeInQuad",
+                            translateY: [0, "60%"],
                         },
-                    },
-                    "-=650"
-                );
+                        "-=750"
+                    )
+                    .add(
+                        {
+                            targets: curtainText,
+                            translateY: ["-200%", 0],
+                            duration: 650,
+                            easing: "easeInOutQuad",
+                            complete: () => {
+                                anime.set(curtain, {
+                                    clipPath:
+                                        "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+                                });
+                                done();
+                            },
+                        },
+                        "-=650"
+                    );
             },
             async enter() {
                 const done = this.async();
                 const t1 = anime.timeline();
 
                 t1.add({
+                    begin: () => {
+                        anime.set("main", {
+                            translateY: 0,
+                        });
+                    },
                     targets: curtainText,
                     translateY: [0, "200%"],
-                    duration: 650,
+                    duration: 750,
                     easing: "easeInOutQuad",
                 }).add(
                     {
