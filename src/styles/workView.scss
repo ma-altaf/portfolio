@@ -112,6 +112,7 @@
         section {
             overflow: hidden;
             width: 100%;
+            height: 75vh;
             padding: 4rem;
             display: flex;
             align-items: center;
@@ -123,8 +124,8 @@
             }
             .vidWrapper {
                 overflow: hidden;
-                height: 100vh;
-                width: 40%;
+                width: 50%;
+                aspect-ratio: 4/3;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -137,7 +138,7 @@
                     align-items: center;
                     justify-content: center;
                     video {
-                        width: 80%;
+                        max-width: 90%;
                         border-radius: 0.8rem;
                     }
                 }
@@ -243,15 +244,16 @@
         }
 
         #descriptionSect {
+            padding: 2rem 0;
             section {
                 padding: 2rem;
                 flex-direction: column;
+                height: fit-content;
                 &:nth-child(even) {
                     flex-direction: column;
                 }
 
                 .vidWrapper {
-                    height: auto;
                     aspect-ratio: 1/1;
                     width: 100%;
                 }
