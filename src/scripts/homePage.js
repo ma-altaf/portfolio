@@ -1,4 +1,4 @@
-import { breakIntoChar } from "./index";
+import { breakIntoChar, breakIntoWord } from "./index";
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
 
@@ -9,13 +9,15 @@ export function homePageInit() {
     const firstname = logo.querySelector("#logoFirstname");
     const surname = logo.querySelector("#logoSurname");
 
+    breakIntoWord(aboutText);
+
     const aboutTextAnimation = anime({
+        targets: aboutText.querySelectorAll(".word p"),
         autoplay: false,
-        targets: aboutText.querySelectorAll("div pre p"),
         translateY: ["120%", 0],
-        duration: 950,
         easing: "easeOutQuad",
-        delay: anime.stagger(150),
+        duration: 750,
+        delay: anime.stagger(10),
     });
 
     if (window.innerWidth > 820) {
@@ -164,7 +166,7 @@ export function homePageInit() {
             });
         });
 
-        animationTrigger(aboutText, 0.75, () => {
+        animationTrigger(aboutText, 0.8, () => {
             aboutTextAnimation.play();
         });
 

@@ -1,5 +1,4 @@
 import anime from "animejs";
-import barba from "@barba/core";
 import { breakIntoWord } from ".";
 
 export function aboutPageInit() {

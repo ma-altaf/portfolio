@@ -47,6 +47,8 @@
         }
 
         #titlePara {
+            display: flex;
+            flex-wrap: wrap;
             overflow: hidden;
             font-weight: 400;
             max-width: 60%;

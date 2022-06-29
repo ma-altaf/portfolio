@@ -1,6 +1,5 @@
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
-import barba from "@barba/core";
 import { breakIntoWord } from "./index";
 
 function workViewPageInit() {

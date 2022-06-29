@@ -1,6 +1,5 @@
 import anime from "animejs";
 import { breakIntoChar } from "./index";
-import barba from "@barba/core";
 
 export function contactPageInit() {
     const bgColorArr = ["#EA4335", "#333", "#0a66c2"];

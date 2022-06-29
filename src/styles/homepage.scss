@@ -96,28 +96,17 @@
         }
 
         #aboutPara {
-            text-align: justify;
-            width: 100%;
-            min-height: 50vh;
+            width: 56vw;
             padding-top: 8rem;
             font-weight: 300;
             font-size: 2rem;
             display: flex;
-            justify-content: center;
-            align-items: center;
-
-            div {
-                width: 50vw;
-
-                pre {
-                    overflow: hidden;
-                }
-            }
+            flex-wrap: wrap;
         }
     }
 
     #projects {
-        overflow: hidden;
+        overflow-x: hidden;
         width: 100vw;
         display: flex;
         justify-content: center;
@@ -282,15 +271,9 @@
             flex-direction: column;
 
             #aboutPara {
-                min-height: 30vh;
-                padding-top: 0;
-                div {
-                    width: 100%;
-                    p {
-                        max-width: 100% !important;
-                        font-size: large;
-                    }
-                }
+                padding-top: 4rem;
+                width: 100%;
+                font-size: large;
             }
         }
 
