@@ -3,6 +3,7 @@ import { breakIntoWord } from ".";
 
 export function aboutPageInit() {
     const backBtn = document.querySelector("#aboutPage #backBtn");
+    const techBoxP = document.querySelectorAll("#aboutPage #techBox p");
     const titlePara = document.querySelector(
         "#aboutPage #titleSect #titlePara"
     );
@@ -30,7 +31,7 @@ export function aboutPageInit() {
         .add(
             {
                 targets: "#aboutPage #techSect h1 p",
-                translateY: ["120%", 0],
+                opacity: [0, 1],
                 easing: "easeOutQuad",
                 duration: 500,
             },
@@ -38,12 +39,16 @@ export function aboutPageInit() {
         )
         .add(
             {
-                targets: "#techBox p",
+                targets: techBoxP,
                 opacity: [0, 1],
-                easing: "easeInOutQuad",
-                duration: 750,
+                easing: "easeInQuad",
+                delay: anime.stagger(200, {
+                    grid: [3, techBoxP.length / 3],
+                    from: "center",
+                }),
+                duration: 250,
             },
-            "-=250"
+            "-=650"
         )
         .add(
             {
