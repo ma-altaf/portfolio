@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>S.Creative HeArt | A.Altaf</title>
+        <link rel="stylesheet" href="../main.css" />
+    </head>
+    <body style="display: none" data-barba="wrapper">
+        <div id="floatingNav">
+            <div>
+                <span class="menuBars"></span>
+                <span class="menuBars"></span>
+                <span class="menuBars"></span>
+            </div>
+        </div>
+        <div id="floatingNavContent">
+            <ul>
+                <li><a href="https://altafagowun.web.app/">Home</a></li>
+                <li>
+                    <a href="https://altafagowun.web.app/work.html">Works</a>
+                </li>
+                <li>
+                    <a href="https://altafagowun.web.app/about.html">About</a>
+                </li>
+                <li>
+                    <a href="https://altafagowun.web.app/contact.html"
+                        >Contact</a
+                    >
+                </li>
+            </ul>
+        </div>
+        <div id="curtain">
+            <div id="namespace"></div>
+        </div>
+        <main
+            data-barba="container"
+            data-barba-namespace="works/MERN Chat"
+            id="mcaPage"
+            class="workViewPage"
+        >
+            <div id="backBtn"><p>Back</p></div>
+
+            <section id="topSect">
+                <h1><p>MERN Chat</p></h1>
+                <div id="summary">
+                    Developed website to send and receive messages using the
+                    MERN stack. Using Cloudinary messages could contain not only
+                    text but also images, videos and audio. The front-end was
+                    made using ReactJS with Tailwind CSS and framer motion. The
+                    back end used express and socket.io for real-time
+                    communication, Mongoose library was used to interact with
+                    the MongoDB database.
+                </div>
+                <a
+                    href="https://github.com/ma-altaf/MERN-Chat"
+                    target="_blank"
+                    id="gitHubLink"
+                    >Check on GitHub</a
+                >
+                <a
+                    href="https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_prev.mp4"
+                    target="_blank"
+                    id="websiteBtn"
+                >
+                    <p>Video</p>
+                    <p>Demo</p>
+                </a>
+            </section>
+
+            <div id="previewSect" style="background-color: #34d399">
+                <video
+                    id="prevScreen"
+                    src="https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_prev.mp4"
+                    loop
+                    muted
+                />
+            </div>
+
+            <section id="descriptionSect">
+                <!-- Log In -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_bg1.jpg?tr=w-1080);
+                            "
+                        >
+                            <video
+                                src="https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_logIn.mp4?tr=w-1080"
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        User can create a new account or log in to an existing
+                        account. When a user creates an account, their password
+                        is encrypted using the bcrypt library before being
+                        stored on the database. Upon successfully logging in an
+                        Http-only cookie is sent to them which contained an
+                        encrypted version of their ID (encrypted using
+                        JSONWebToken), this cookie is sent with every
+                        communication with the server which allow the server to
+                        authenticate the user.
+                    </div>
+                </section>
+                <!-- Change about -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_bg2.jpg?tr=w-1080);
+                            "
+                        >
+                            <video
+                                src="https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_changeAbout.mp4?tr=w-1080"
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Users can edit their profile information such as their
+                        username, profile picture and about. When changing their
+                        username, the back end ensures that their name is unique
+                        since adding them to one’s contact will require the new
+                        username to be entered moving forward, hence the
+                        username needs to be unique. Profile images are stored
+                        on Cloudinary and will therefore overwrite the previous
+                        profile image of the user.
+                    </div>
+                </section>
+                <!-- Adding user -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_bg3.jpg?tr=w-1080);
+                            "
+                        >
+                            <video
+                                src="https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_addUser.mp4?tr=w-1080"
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Users can add other users to their contact list to be
+                        able to communicate to them by clicking the “Add
+                        contact” button. The button will change into a form
+                        where they need to type in the username of the person
+                        they wish to add, and if the username exists by clicking
+                        on the “Send Request” they will be redirected to a newly
+                        created chat room between them. If the other user is
+                        already in their contact, then no new chat room will be
+                        created the user will only be redirected to the existing
+                        chat room.
+                    </div>
+                </section>
+                <!-- messaging -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_bg4.jpg?tr=w-1080);
+                            "
+                        >
+                            <video
+                                src="https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_message.mp4?tr=w-1080"
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        Users can send message containing text, images, videos,
+                        or audio. Moreover, the chat room is also paginated,
+                        only the last 10 messages exchanged in the chat room
+                        will be loaded, if the user wishes to view older
+                        messages they can click on the “load more” button in
+                        order to request another 10 messages, and they can keep
+                        requesting more messages to be loaded if they want more,
+                        this ensures that loading a chat room will not take
+                        longer and consume more data overtime.
+                    </div>
+                </section>
+                <!-- light mode -->
+                <section>
+                    <div class="vidWrapper">
+                        <div
+                            class="vidContainer"
+                            style="
+                                background-image: url(https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_bg5.jpg?tr=w-1080);
+                            "
+                        >
+                            <video
+                                src="https://ik.imagekit.io/Aaltaf/portfolio/MCA/MCA_lightMode.mp4?tr=w-1080"
+                                loop
+                                muted
+                            />
+                        </div>
+                    </div>
+                    <div class="description">
+                        The app colors were defined in the tailwind CSS,
+                        “tailwind.config.js” file in order to keep a consistent
+                        color scheme through out the app. Moreover, both a light
+                        and dark mode was implemented, depending on the user’s
+                        system preferences they will be presented with either
+                        the light mode version of the application or the dark
+                        mode.
+                    </div>
+                </section>
+            </section>
+            <footer>
+                <a href="./wall4comment.html">
+                    <p>Next Project</p>
+                    <span>
+                        <img
+                            src="https://ik.imagekit.io/Aaltaf/portfolio/W4C/W4C_img.jpg?tr=w-1080"
+                            alt="wall 4 Comment project"
+                        />
+                        <h1>Wall 4 Comment</h1>
+                    </span>
+                </a>
+            </footer>
+        </main>
+    </body>
+    <script src="../bundle.js"></script>
+</html>

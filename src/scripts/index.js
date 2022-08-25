@@ -150,7 +150,7 @@ function pageInit(namespace) {
         case "home":
             homePageInit();
             break;
-        case "work":
+        case "works":
             workPageInit();
             break;
         case "contact":
