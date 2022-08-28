@@ -73,12 +73,11 @@
     #landingSect {
         width: 100vw;
         min-height: 100vh;
-        padding: 8rem 4rem;
+        padding: 8rem 4rem 1rem 4rem;
 
         #title {
             text-transform: uppercase;
             line-height: 100%;
-
             font-weight: 300;
             font-size: 10vw;
             max-width: 80vw;
@@ -96,8 +95,9 @@
         }
 
         #aboutPara {
-            width: 56vw;
-            padding-top: 8rem;
+            width: 58vw;
+            padding-top: 12rem;
+            padding-bottom: 0rem;
             font-weight: 300;
             font-size: 2rem;
             display: flex;
@@ -111,7 +111,7 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        padding: 9rem 4rem;
+        padding: 11rem 4rem;
 
         p {
             text-transform: uppercase;
