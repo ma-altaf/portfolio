@@ -10,7 +10,7 @@ import { workViewPageInit } from "./workViewPage";
 import anime from "animejs";
 
 console.log(
-    "%cDesigned and coded by yours truly 😉.",
+    "%cHi there!!! 👋.",
     "color:#ffeaa7; background-color:black; padding:0.5rem;"
 );
 
