@@ -1,0 +1,110 @@
+#workPage {
+  overflow: hidden;
+}
+#workPage #backBtn {
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 4rem;
+  text-transform: uppercase;
+}
+#workPage #backBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  z-index: -1;
+  width: 100%;
+  background-color: var(--secondaryColor);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: right;
+}
+#workPage #backBtn:hover::after,
+#workPage #backBtn :focus::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+#workPage #titleSect {
+  padding: 2rem;
+  padding-top: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#workPage #titleSect h1 {
+  overflow: hidden;
+  font-size: 4rem;
+  margin-bottom: 4rem;
+  font-weight: 500;
+}
+#workPage #titleSect h5 {
+  display: flex;
+  overflow: hidden;
+  font-weight: 400;
+  max-width: 60%;
+  flex-wrap: wrap;
+}
+#workPage #workGallery {
+  margin: auto;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-bottom: 8rem;
+}
+#workPage #workGallery .column1 {
+  padding-top: 8rem;
+}
+#workPage #workGallery .projectImgs {
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+#workPage #workGallery .projectImgs img {
+  width: 100%;
+}
+#workPage #workGallery .projectImgs h1 {
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primaryColor);
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 820px) {
+  #workPage {
+    padding-bottom: 6rem;
+  }
+  #workPage #backBtn {
+    margin: 2rem !important;
+  }
+  #workPage #titleSect h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  #workPage #titleSect h5 {
+    max-width: 100%;
+  }
+  #workPage #workGallery {
+    grid-template-columns: 1fr;
+    width: 100%;
+    padding: 0;
+  }
+  #workPage #workGallery .projectImgs h1 {
+    width: 80%;
+    font-size: 2rem;
+  }
+}/*# sourceMappingURL=work.css.map */

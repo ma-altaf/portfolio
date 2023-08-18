@@ -1,0 +1,78 @@
+#contactPage #contactArea {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#contactPage #contactArea #backBtn {
+  z-index: 10;
+  overflow: hidden;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 4rem;
+  text-transform: uppercase;
+}
+#contactPage #contactArea #backBtn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  z-index: -1;
+  width: 100%;
+  background-color: var(--secondaryColor);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+  transform-origin: right;
+}
+#contactPage #contactArea #backBtn:hover::after,
+#contactPage #contactArea #backBtn :focus::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+#contactPage #contactArea #contactList {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+#contactPage #contactArea #contactList a {
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+}
+#contactPage #contactArea #contactList a pre {
+  width: 100%;
+  color: var(--secondaryColor);
+  font-size: 4rem;
+  text-align: center;
+}
+#contactPage #contactArea #contactList a .username {
+  color: var(--primaryColor);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#contactPage #contactArea #contactList span {
+  height: 3px;
+  width: 100%;
+  border-radius: 1.5px;
+  background-color: var(--secondaryColor);
+  opacity: 0.1;
+}
+
+@media only screen and (max-width: 820px) {
+  #backBtn {
+    margin: 2rem !important;
+  }
+  #contactList {
+    width: 90vw !important;
+  }
+  #contactList a pre {
+    font-size: 2rem !important;
+  }
+}/*# sourceMappingURL=contact.css.map */
