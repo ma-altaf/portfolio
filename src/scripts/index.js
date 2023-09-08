@@ -11,7 +11,7 @@ import anime from "animejs";
 
 console.log(
     "%cHi there!!! 👋.",
-    "color:#ffeaa7; background-color:black; padding:0.5rem;"
+    "color:#2d7dff; background-color:black; padding:0.5rem;"
 );
 
 const breakIntoChar = (element) => {
