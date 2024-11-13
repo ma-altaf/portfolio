@@ -40,13 +40,13 @@ export function aboutPageInit() {
         .add(
             {
                 targets: techBoxP,
-                opacity: [0, 1],
+                color: ["rgba(255, 234, 167, 0)", "rgba(0,0,0,1)"],
                 easing: "easeInQuad",
                 delay: anime.stagger(200, {
                     grid: [3, techBoxP.length / 3],
                     from: "center",
                 }),
-                duration: 250,
+                duration: 500,
             },
             "-=650"
         )
