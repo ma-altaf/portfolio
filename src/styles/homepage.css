@@ -83,9 +83,20 @@
   width: 100%;
   overflow: hidden;
 }
+#homePage #landingSect #location {
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  overflow: hidden;
+  font-weight: bold;
+}
+#homePage #landingSect #location span {
+  font-size: 2rem;
+}
 #homePage #landingSect #aboutPara {
   width: 58vw;
-  padding-top: 12rem;
+  padding-top: 8rem;
   padding-bottom: 0rem;
   font-weight: 300;
   font-size: 2rem;
@@ -98,7 +109,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 11rem 4rem;
+  padding: 12rem 4rem;
 }
 #homePage #projects p {
   text-transform: uppercase;

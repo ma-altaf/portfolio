@@ -109,6 +109,24 @@ const coverAnimation = () => {
         )
         .add(
             {
+                targets: "#location span",
+                translateY: ["100%", 0],
+                easing: "easeOutCirc",
+                duration: 300,
+            },
+            `-=300`
+        )
+        .add(
+            {
+                targets: "#location p",
+                translateY: ["100%", 0],
+                easing: "easeOutCirc",
+                duration: 300,
+            },
+            `-=200`
+        )
+        .add(
+            {
                 targets: ["#logo #logoFirstname", "#logo #logoSurname"],
                 translateY: ["150%", 0],
                 easing: "easeOutCirc",
