@@ -2,7 +2,7 @@ import anime from "animejs";
 import { breakIntoChar } from "./index";
 
 export function contactPageInit() {
-    const bgColorArr = ["#EA4335", "#333", "#0a66c2"];
+    const bgColorArr = ["#EA4335", "#333", "#0a66c2", "#FFA116"];
     const contactLinks = document.querySelectorAll("#contactList a");
     const backBtn = document.querySelector("#contactPage #backBtn");
     const linkTransitionTime = 450;
