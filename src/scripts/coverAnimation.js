@@ -36,35 +36,6 @@ const coverAnimation = () => {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
 
-    const scrollText = document.querySelector("#landingSect #scroll");
-    breakIntoChar(scrollText);
-    const scrollChars = scrollText.querySelectorAll(".char");
-
-    anime.set(scrollChars, {
-        translateY: "100%",
-    });
-
-    function scrollAnimation() {
-        anime
-            .timeline({
-                loop: true,
-            })
-            .add({
-                targets: scrollChars,
-                translateY: ["100%", "0"],
-                duration: "600",
-                easing: "easeOutCirc",
-                delay: anime.stagger(50),
-            })
-            .add({
-                targets: scrollChars,
-                translateY: ["0", "-100%"],
-                duration: "600",
-                easing: "easeInCirc",
-                delay: anime.stagger(50),
-            });
-    }
-
     coverTL
         .add({
             targets: firstname.querySelectorAll(".char p"),
@@ -156,7 +127,9 @@ const coverAnimation = () => {
             `-=300`
         )
         .add({
-            begin: () => scrollAnimation(),
+            targets: "#landingSect #scroll",
+            easing: "linear",
+            opacity: [0, 1],
         })
         .add(
             {

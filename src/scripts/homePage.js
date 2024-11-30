@@ -2,7 +2,32 @@ import { breakIntoChar, breakIntoWord } from "./index";
 import anime from "animejs";
 import { animationTrigger } from "./scroll";
 
-export function homePageInit() {
+function scrollAnimation() {
+    const scrollText = document.querySelector("#landingSect #scroll");
+    breakIntoChar(scrollText);
+    const scrollChars = scrollText.querySelectorAll(".char");
+
+    anime
+        .timeline({
+            loop: true,
+        })
+        .add({
+            targets: scrollChars,
+            translateY: ["100%", "0"],
+            duration: "600",
+            easing: "easeOutCirc",
+            delay: anime.stagger(50),
+        })
+        .add({
+            targets: scrollChars,
+            translateY: ["0", "-100%"],
+            duration: "600",
+            easing: "easeInCirc",
+            delay: anime.stagger(50),
+        });
+}
+
+function homePageInit() {
     const navbar = document.querySelector("#navbar");
     const logo = navbar.querySelector("#logo");
     const aboutText = document.querySelector("#landingSect #aboutPara");
@@ -10,6 +35,7 @@ export function homePageInit() {
     const surname = logo.querySelector("#logoSurname");
 
     breakIntoWord(aboutText);
+    scrollAnimation();
 
     const aboutTextAnimation = anime({
         targets: aboutText.querySelectorAll(".word p"),
@@ -263,3 +289,5 @@ export function homePageInit() {
         });
     });
 }
+
+export { homePageInit, scrollAnimation };
