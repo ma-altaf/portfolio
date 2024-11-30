@@ -36,6 +36,35 @@ const coverAnimation = () => {
         clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
     });
 
+    const scrollText = document.querySelector("#landingSect #scroll");
+    breakIntoChar(scrollText);
+    const scrollChars = scrollText.querySelectorAll(".char");
+
+    anime.set(scrollChars, {
+        translateY: "100%",
+    });
+
+    function scrollAnimation() {
+        anime
+            .timeline({
+                loop: true,
+            })
+            .add({
+                targets: scrollChars,
+                translateY: ["100%", "0"],
+                duration: "600",
+                easing: "easeOutCirc",
+                delay: anime.stagger(50),
+            })
+            .add({
+                targets: scrollChars,
+                translateY: ["0", "-100%"],
+                duration: "600",
+                easing: "easeInCirc",
+                delay: anime.stagger(50),
+            });
+    }
+
     coverTL
         .add({
             targets: firstname.querySelectorAll(".char p"),
@@ -109,21 +138,13 @@ const coverAnimation = () => {
         )
         .add(
             {
-                targets: "#location span",
-                translateY: ["100%", 0],
+                targets: ["#location span", "#location p"],
+                translateY: ["200%", 0],
                 easing: "easeOutCirc",
                 duration: 300,
+                delay: anime.stagger(150),
             },
             `-=300`
-        )
-        .add(
-            {
-                targets: "#location p",
-                translateY: ["100%", 0],
-                easing: "easeOutCirc",
-                duration: 300,
-            },
-            `-=200`
         )
         .add(
             {
@@ -134,17 +155,19 @@ const coverAnimation = () => {
             },
             `-=300`
         )
+        .add({
+            begin: () => scrollAnimation(),
+        })
         .add(
             {
                 targets: "#menu a",
                 opacity: [0, 1],
-                color: "red",
                 translateY: ["100%", 0],
                 easing: "easeOutCirc",
                 duration: 485,
                 delay: anime.stagger(100),
             },
-            `-=150`
+            `-=1000`
         );
 };
 
