@@ -83,15 +83,26 @@
   width: 100%;
   overflow: hidden;
 }
-#homePage #landingSect #location {
-  padding-top: 2rem;
+#homePage #landingSect #landingBottom {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
   font-size: 1.25rem;
   overflow: hidden;
-  font-weight: bold;
 }
-#homePage #landingSect #location span {
+#homePage #landingSect #landingBottom #scroll {
+  line-height: 1rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+#homePage #landingSect #landingBottom #location {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+#homePage #landingSect #landingBottom #location span {
   font-size: 2rem;
 }
 #homePage #landingSect #aboutPara {
@@ -103,16 +114,49 @@
   display: flex;
   flex-wrap: wrap;
 }
-#homePage #projects {
-  overflow-x: hidden;
+#homePage #skills {
   width: 100vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 12rem 4rem;
+  padding: 8rem 4rem 0rem;
 }
-#homePage #projects p {
+#homePage #skills h2 {
   text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1rem;
+}
+#homePage #skills #skillGrid {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#homePage #skills #skillGrid div {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#homePage #skills #skillGrid div p {
+  padding-top: 1rem;
+}
+#homePage #skills #skillGrid div i {
+  font-size: 4rem;
+  transition: 450ms ease-out;
+}
+#homePage #projects {
+  overflow-x: visible;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 6rem 4rem 8rem;
+}
+#homePage #projects h2 {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1rem;
 }
 #homePage #projects .projectLink {
   position: relative;
@@ -253,10 +297,28 @@
     justify-content: center;
     flex-direction: column;
   }
+  #homePage #landingSect #landingBottom #scroll {
+    display: none;
+  }
   #homePage #landingSect #aboutPara {
     padding-top: 4rem;
     width: 100%;
     font-size: large;
+  }
+  #homePage #skills {
+    padding: 0rem 2rem;
+  }
+  #homePage #skills #skillGrid {
+    padding: 1rem 0;
+  }
+  #homePage #skills #skillGrid div {
+    padding: 1rem;
+  }
+  #homePage #skills #skillGrid div p {
+    padding-top: 1rem;
+  }
+  #homePage #skills #skillGrid div i {
+    font-size: 4rem;
   }
   #homePage #projects {
     padding: 2rem;

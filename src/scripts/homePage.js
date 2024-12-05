@@ -196,6 +196,18 @@ function homePageInit() {
             aboutTextAnimation.play();
         });
 
+        const devIcons = document.querySelectorAll("#skills #skillGrid div");
+
+        devIcons.forEach((el) => {
+            el.addEventListener("mouseenter", () => {
+                el.querySelector("i").classList.add("colored");
+            });
+
+            el.addEventListener("mouseleave", () => {
+                el.querySelector("i").classList.remove("colored");
+            });
+        });
+
         const projectLinks = document.querySelectorAll(".projectLink");
 
         projectLinks.forEach((link) => {
