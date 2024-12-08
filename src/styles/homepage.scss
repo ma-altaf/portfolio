@@ -102,19 +102,19 @@
             font-size: 1.25rem;
             overflow: hidden;
 
-            #scroll {
-                line-height: 1rem;
-                letter-spacing: 0;
-                text-transform: uppercase;
-                overflow: hidden;
-            }
-
             #location {
                 span {
                     font-size: 2rem;
                 }
                 display: flex;
                 align-items: center;
+                overflow: hidden;
+            }
+
+            #scroll {
+                line-height: 1rem;
+                letter-spacing: 0;
+                text-transform: uppercase;
                 overflow: hidden;
             }
         }
@@ -335,6 +335,12 @@
             flex-direction: column;
 
             #landingBottom {
+                #location {
+                    span {
+                        font-size: 1.5rem;
+                    }
+                    font-size: 1rem;
+                }
                 #scroll {
                     display: none;
                 }
